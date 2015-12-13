@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo博客错误汇总 | 随风</title>
+  <meta name="author" content="James Shi">
+  
+  <meta name="description" content="屌丝程序员的自留地#为搜索引擎留的">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Hexo博客错误汇总"/>
+  <meta property="og:site_name" content="随风"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="随风" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">随风</a></h1>
+  <h2><a href="/">随风而起，随风而散</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/archives">文章列表</a></li>
+    
+      <li><a href="/about">我~</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-13T04:21:33.000Z"><a href="/2015/12/13/hexo-errors/">2015-12-13</a></time>
+      
+      
+  
+    <h1 class="title">Hexo博客错误汇总</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        
+          <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#博文格式错误"><span class="toc-number">1.</span> <span class="toc-text">博文格式错误</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#错误1"><span class="toc-number">1.1.</span> <span class="toc-text">错误1</span></a></li></ol></li></ol>
+          </div>
+        
+        <h1 id="博文格式错误">博文格式错误</h1><h2 id="错误1">错误1</h2><p>错误提示如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g&#10;ERROR Process failed: _posts/how-mistake-python-introduction.md&#10;YAMLException: can not read a block mapping entry; a multiline key may not be an implicit                                                                                           key at line 4, column 1:&#10;&#10;    ^&#10;    at generateError (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\js-yaml\lib\js-                                                                                          yaml\loader.js:160:10)&#10;    at throwError (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\js-yaml\lib\js-yam                                                                                          l\loader.js:166:9)&#10;    at readBlockMapping (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\js-yaml\lib\                                                                                          js-yaml\loader.js:1029:9)&#10;    at composeNode (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\js-yaml\lib\js-ya                                                                                          ml\loader.js:1317:12)&#10;    at readDocument (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\js-yaml\lib\js-y                                                                                          aml\loader.js:1480:3)&#10;    at loadDocuments (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\js-yaml\lib\js-                                                                                          yaml\loader.js:1536:5)&#10;    at Object.load (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\js-yaml\lib\js-ya                                                                                          ml\loader.js:1553:19)&#10;    at parseYAML (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\hexo-front-matter\l                                                                                          ib\front_matter.js:80:21)&#10;    at parse (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\hexo-front-matter\lib\f                                                                                          ront_matter.js:56:12)&#10;    at C:\Users\Brave\MyBlog\node_modules\hexo\lib\plugins\processor\post.js:87:16&#10;    at tryCatcher (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\bluebird\js\main\u                                                                                          til.js:26:23)&#10;    at Promise._settlePromiseFromHandler (C:\Users\Brave\MyBlog\node_modules\hexo\node_mod                                                                                          ules\bluebird\js\main\promise.js:505:31)&#10;    at Promise._settlePromiseAt (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\blue                                                                                          bird\js\main\promise.js:581:18)&#10;    at Promise._settlePromises (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\blueb                                                                                          ird\js\main\promise.js:697:14)&#10;    at Async._drainQueue (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\bluebird\js                                                                                          \main\async.js:123:16)&#10;    at Async._drainQueues (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\bluebird\j                                                                                          s\main\async.js:133:10)&#10;    at Immediate.Async.drainQueues [as _onImmediate] (C:\Users\Brave\MyBlog\node_modules\h                                                                                          exo\node_modules\bluebird\js\main\async.js:15:14)&#10;    at processImmediate [as _immediateCallback] (timers.js:383:17)&#10;INFO  Files loaded in 3.69 s&#10;INFO  0 files generated in 294 ms</span><br></pre></td></tr></table></figure></p>
+<p>重要提示：<br><code>can not read a block mapping entry</code>。</p>
+<p>原因：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">title: Hexo&#21338;&#23458;&#38169;&#35823;&#27719;&#24635;&#10;date: 2015-12-13 12:21:33&#10;tags:[&#34;Hexo&#34;] #tags&#20882;&#21495;&#21518;&#38754;&#24212;&#24403;&#26377;&#20010;&#31354;&#26684;,&#20854;&#20182;&#22320;&#26041;&#20063;&#24212;&#24403;&#27880;&#24847;</span><br></pre></td></tr></table></figure></p>
+<p>正确格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">title: Hexo&#21338;&#23458;&#38169;&#35823;&#27719;&#24635;&#10;date: 2015-12-13 12:21:33&#10;tags: [&#34;Hexo&#34;]</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Hexo/">Hexo</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="2015/12/13/hexo-errors/" data-title="Hexo博客错误汇总" data-url="http://shitaibin.github.io/2015/12/13/hexo-errors/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"stb"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:shitaibin.github.io">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/教程/">教程</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Github-Pages/">Github Pages</a><small>1</small></li>
+  
+    <li><a href="/tags/Hexo/">Hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/Python试错/">Python试错</a><small>1</small></li>
+  
+    <li><a href="/tags/TADM/">TADM</a><small>2</small></li>
+  
+    <li><a href="/tags/blog/">blog</a><small>1</small></li>
+  
+    <li><a href="/tags/图论/">图论</a><small>1</small></li>
+  
+    <li><a href="/tags/待办/">待办</a><small>1</small></li>
+  
+    <li><a href="/tags/招聘/">招聘</a><small>1</small></li>
+  
+    <li><a href="/tags/排序/">排序</a><small>1</small></li>
+  
+    <li><a href="/tags/搜索/">搜索</a><small>2</small></li>
+  
+    <li><a href="/tags/编程语言/">编程语言</a><small>1</small></li>
+  
+    <li><a href="/tags/翻译/">翻译</a><small>1</small></li>
+  
+    <li><a href="/tags/面试/">面试</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 James Shi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

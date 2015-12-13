@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Github Pages + Hexo部署总结 | 随风</title>
+  <title>搭好博客勤备份 | 随风</title>
   <meta name="author" content="James Shi">
   
   <meta name="description" content="屌丝程序员的自留地#为搜索引擎留的">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Github Pages + Hexo部署总结"/>
+  <meta property="og:title" content="搭好博客勤备份"/>
   <meta property="og:site_name" content="随风"/>
 
   
@@ -50,11 +50,11 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-05-01T08:47:40.000Z"><a href="/2015/05/01/Github-Pages-Hexo部署总结/">2015-05-01</a></time>
+        <time datetime="2015-12-12T08:31:01.000Z"><a href="/2015/12/12/back-up-your-blog/">2015-12-12</a></time>
       
       
   
-    <h1 class="title">Github Pages + Hexo部署总结</h1>
+    <h1 class="title">搭好博客勤备份</h1>
   
 
     </header>
@@ -63,38 +63,37 @@
         
           <div id="toc" class="toc-article">
           <strong class="toc-title">文章目录</strong>
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#值得思考的事情"><span class="toc-number">1.</span> <span class="toc-text">值得思考的事情</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">2.</span> <span class="toc-text">参考资料</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#那么，什么需要备份呢？"><span class="toc-number">1.</span> <span class="toc-text">那么，什么需要备份呢？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份到哪里？"><span class="toc-number">2.</span> <span class="toc-text">备份到哪里？</span></a></li></ol>
           </div>
         
-        <h1 id="值得思考的事情">值得思考的事情</h1><ol>
-<li>为什么要搭博客？</li>
-<li>你能坚持写作吗？</li>
-</ol>
-<p>如果不能回答第一个问题，或者也不能坚持，还是放弃吧，因为搭博客很烦人，如果不能坚持，大博客就变成浪费时间了，不如写写代码。</p>
-<p>我现在搭这个博客，是为了把 <em>The Algorithm Design Manual</em> 上的部分习题记录下来。找一件事做，才有东西可写，才能坚持下去。</p>
-<h1 id="参考资料">参考资料</h1><p>参考资料众多，我再写一篇就是，重复造轮子了。</p>
-<p>参考资料：<a href="http://yangruihan.com/" target="_blank" rel="external">http://yangruihan.com/</a> 。他采用了Github Pages + Hexo，风格个人比较喜欢，之前也用jekyII，Octopress搭过，目前Hexo看起来更舒服，并且过程相对简单。</p>
-<p>安装时有以下建议：</p>
+        <p>之前，在搭好博客后我就可是对博客的备份了，备份了配置文件和文章的Markdown文件，以及自己修改的主题。</p>
+<p>由于备份的并不是十分勤奋，以至于在我重新做系统后，将备份到Github上的数据Clone到本地后，傻眼了。出现了以下两个大问题：</p>
 <ol>
-<li>安装Node.js后，更改为国内源，不然安装Hexo慢…<br> 参考：<a href="http://yijiebuyi.com/blog/b12eac891cdc5f0dff127ae18dc386d4.html" target="_blank" rel="external">http://yijiebuyi.com/blog/b12eac891cdc5f0dff127ae18dc386d4.html</a></li>
-<li>yangruihan提到的Node.js安装失败，重启主机即可。</li>
-<li>部署失败可参考文件<code>——config.yml</code>中所提供的链接：<a href="http://hexo.io/docs/deployment.html。" target="_blank" rel="external">http://hexo.io/docs/deployment.html。</a></li>
+<li>少了几篇文章（一篇文章、笔记可是辛苦了好几天才写出来的呀）。</li>
+<li>一些设置没有了，包括博客的自定义主题。</li>
 </ol>
+<h3 id="那么，什么需要备份呢？">那么，什么需要备份呢？</h3><p>以下举例以Hexo的文件为例。</p>
+<ol>
+<li>博客配置文件，如<code>_config.yml</code>。</li>
+<li>主题文件夹，如themes目录下自己自定义的主题。</li>
+<li>发表过的博文，如source目录。</li>
+</ol>
+<p>如果想省事，可以对整个Hexo博客文件进行完整备份，但是备份前需要进行<code>hexo clean</code>，清理掉一些临时的缓存文件（如public目录）。</p>
+<h3 id="备份到哪里？">备份到哪里？</h3><p>如今流行备份到云端，如果没有什么机密的东西，就备份到云上，并且随处可取。如果备份到本地私有服务器，就没有放在网络上方便了。于云端而言，可以备份到网盘、Github等托管网站。</p>
+<p>对比备份到网盘与Github的等托管网站的特点。</p>
+<p>网盘特点：<br>国内网盘备份速度快；可自动备份，省心；相对较私密，只要自己不设置共享。</p>
+<p>Github特点：<br>备份速度慢点；需手动Push（当然你可以写个脚本自动Push，然后再设个计划任务，每天自动备份）；共享。</p>
+<p>如今我乐意备份到这两个地方，多一份保险。网盘采取自动备份，这样基本确保了<strong>及时备份</strong>，Git采取手动定期备份。</p>
 
       
     </div>
     <footer>
       
         
-  
-  <div class="categories">
-    <a href="/categories/教程/">教程</a>
-  </div>
-
         
   
   <div class="tags">
-    <a href="/tags/Github-Pages/">Github Pages</a>, <a href="/tags/Hexo/">Hexo</a>
+    <a href="/tags/blog/">blog</a>
   </div>
 
       
@@ -106,7 +105,7 @@
 
 <section id="comment">
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="2015/05/01/Github-Pages-Hexo部署总结/" data-title="Github Pages + Hexo部署总结" data-url="http://shitaibin.github.io/2015/05/01/Github-Pages-Hexo部署总结/"></div>
+  <div class="ds-thread" data-thread-key="2015/12/12/back-up-your-blog/" data-title="搭好博客勤备份" data-url="http://shitaibin.github.io/2015/12/12/back-up-your-blog/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

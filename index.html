@@ -51,6 +51,148 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-12-13T04:21:33.000Z"><a href="/2015/12/13/hexo-errors/">2015-12-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/13/hexo-errors/">Hexo博客错误汇总</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        
+          <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#博文格式错误"><span class="toc-number">1.</span> <span class="toc-text">博文格式错误</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#错误1"><span class="toc-number">1.1.</span> <span class="toc-text">错误1</span></a></li></ol></li></ol>
+          </div>
+        
+        <h1 id="博文格式错误">博文格式错误</h1><h2 id="错误1">错误1</h2><p>错误提示如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g&#10;ERROR Process failed: _posts/how-mistake-python-introduction.md&#10;YAMLException: can not read a block mapping entry; a multiline key may not be an implicit                                                                                           key at line 4, column 1:&#10;&#10;    ^&#10;    at generateError (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\js-yaml\lib\js-                                                                                          yaml\loader.js:160:10)&#10;    at throwError (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\js-yaml\lib\js-yam                                                                                          l\loader.js:166:9)&#10;    at readBlockMapping (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\js-yaml\lib\                                                                                          js-yaml\loader.js:1029:9)&#10;    at composeNode (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\js-yaml\lib\js-ya                                                                                          ml\loader.js:1317:12)&#10;    at readDocument (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\js-yaml\lib\js-y                                                                                          aml\loader.js:1480:3)&#10;    at loadDocuments (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\js-yaml\lib\js-                                                                                          yaml\loader.js:1536:5)&#10;    at Object.load (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\js-yaml\lib\js-ya                                                                                          ml\loader.js:1553:19)&#10;    at parseYAML (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\hexo-front-matter\l                                                                                          ib\front_matter.js:80:21)&#10;    at parse (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\hexo-front-matter\lib\f                                                                                          ront_matter.js:56:12)&#10;    at C:\Users\Brave\MyBlog\node_modules\hexo\lib\plugins\processor\post.js:87:16&#10;    at tryCatcher (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\bluebird\js\main\u                                                                                          til.js:26:23)&#10;    at Promise._settlePromiseFromHandler (C:\Users\Brave\MyBlog\node_modules\hexo\node_mod                                                                                          ules\bluebird\js\main\promise.js:505:31)&#10;    at Promise._settlePromiseAt (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\blue                                                                                          bird\js\main\promise.js:581:18)&#10;    at Promise._settlePromises (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\blueb                                                                                          ird\js\main\promise.js:697:14)&#10;    at Async._drainQueue (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\bluebird\js                                                                                          \main\async.js:123:16)&#10;    at Async._drainQueues (C:\Users\Brave\MyBlog\node_modules\hexo\node_modules\bluebird\j                                                                                          s\main\async.js:133:10)&#10;    at Immediate.Async.drainQueues [as _onImmediate] (C:\Users\Brave\MyBlog\node_modules\h                                                                                          exo\node_modules\bluebird\js\main\async.js:15:14)&#10;    at processImmediate [as _immediateCallback] (timers.js:383:17)&#10;INFO  Files loaded in 3.69 s&#10;INFO  0 files generated in 294 ms</span><br></pre></td></tr></table></figure></p>
+<p>重要提示：<br><code>can not read a block mapping entry</code>。</p>
+<p>原因：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">title: Hexo&#21338;&#23458;&#38169;&#35823;&#27719;&#24635;&#10;date: 2015-12-13 12:21:33&#10;tags:[&#34;Hexo&#34;] #tags&#20882;&#21495;&#21518;&#38754;&#24212;&#24403;&#26377;&#20010;&#31354;&#26684;,&#20854;&#20182;&#22320;&#26041;&#20063;&#24212;&#24403;&#27880;&#24847;</span><br></pre></td></tr></table></figure></p>
+<p>正确格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">title: Hexo&#21338;&#23458;&#38169;&#35823;&#27719;&#24635;&#10;date: 2015-12-13 12:21:33&#10;tags: [&#34;Hexo&#34;]</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-13T04:13:33.000Z"><a href="/2015/12/13/how-mistake-python-introduction/">2015-12-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/13/how-mistake-python-introduction/">翻译《Python试错》：前言</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        
+        <h1 id="序言">序言</h1><p>人孰无过，但真正把事情搞糟糕，你还需要一台计算机。<br>——比尔·沃恩</p>
+<p>2000年是互联网泡沫的尾声，自那时起，我开始了Python编程。那段时间我做了许多事情，但那些事情并不能让我引以为豪。其中一些事情非常简单，一些意义深厚，但都伴随的美好的意愿。正如人们所言，我也了犯许多错误。这让我付出了昂贵的代价，大多数让我很囧。通过讨论、探究、一层一层的分析这些错误，我希望这能对你有所帮助。</p>
+<p>我思考了作为Python程序员我所犯的这些错误，他们或多或少可以分为以下几类：</p>
+<ol>
+<li><strong>安装</strong>：阻碍来自未充分准备的安装环境。</li>
+<li><strong>愚蠢的事情</strong>：琐碎的错误浪费了我大量的体力。</li>
+<li><strong>风格</strong>：不好的编程风格阻碍了程序的可读性。</li>
+<li><strong>结构</strong>：组织代码的形式使得改变代码很困难。</li>
+<li><strong>惊喜</strong>：令人震惊的神秘方法，使我破涕为笑。</li>
+</ol>
+<p>在我们开始之前，还有几个快速的事情需要我们解决。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-12T08:31:01.000Z"><a href="/2015/12/12/back-up-your-blog/">2015-12-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/12/back-up-your-blog/">搭好博客勤备份</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        
+          <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#那么，什么需要备份呢？"><span class="toc-number">1.</span> <span class="toc-text">那么，什么需要备份呢？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份到哪里？"><span class="toc-number">2.</span> <span class="toc-text">备份到哪里？</span></a></li></ol>
+          </div>
+        
+        <p>之前，在搭好博客后我就可是对博客的备份了，备份了配置文件和文章的Markdown文件，以及自己修改的主题。</p>
+<p>由于备份的并不是十分勤奋，以至于在我重新做系统后，将备份到Github上的数据Clone到本地后，傻眼了。出现了以下两个大问题：</p>
+<ol>
+<li>少了几篇文章（一篇文章、笔记可是辛苦了好几天才写出来的呀）。</li>
+<li>一些设置没有了，包括博客的自定义主题。</li>
+</ol>
+<h3 id="那么，什么需要备份呢？">那么，什么需要备份呢？</h3><p>以下举例以Hexo的文件为例。</p>
+<ol>
+<li>博客配置文件，如<code>_config.yml</code>。</li>
+<li>主题文件夹，如themes目录下自己自定义的主题。</li>
+<li>发表过的博文，如source目录。</li>
+</ol>
+<p>如果想省事，可以对整个Hexo博客文件进行完整备份，但是备份前需要进行<code>hexo clean</code>，清理掉一些临时的缓存文件（如public目录）。</p>
+<h3 id="备份到哪里？">备份到哪里？</h3><p>如今流行备份到云端，如果没有什么机密的东西，就备份到云上，并且随处可取。如果备份到本地私有服务器，就没有放在网络上方便了。于云端而言，可以备份到网盘、Github等托管网站。</p>
+<p>对比备份到网盘与Github的等托管网站的特点。</p>
+<p>网盘特点：<br>国内网盘备份速度快；可自动备份，省心；相对较私密，只要自己不设置共享。</p>
+<p>Github特点：<br>备份速度慢点；需手动Push（当然你可以写个脚本自动Push，然后再设个计划任务，每天自动备份）；共享。</p>
+<p>如今我乐意备份到这两个地方，多一份保险。网盘采取自动备份，这样基本确保了<strong>及时备份</strong>，Git采取手动定期备份。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-12-12T08:24:02.540Z"><a href="/2015/12/12/Ch6-Exercises-and-Solutions-of-TADM2E/">2015-12-12</a></time>
       
       
@@ -832,9 +974,6 @@
 </ol>
 <h3 id="待办列表">待办列表</h3><ol>
 <li>主页不许要显示全文</li>
-<li>修改footer样式</li>
-<li>调整目录样式，显示序号太难看了</li>
-<li>代码背景改成黑色</li>
 <li>Google搜索无结果</li>
 </ol>
 <h3 id="完成列表">完成列表</h3><ol>
@@ -948,9 +1087,13 @@
   
     <li><a href="/tags/Github-Pages/">Github Pages</a><small>1</small></li>
   
-    <li><a href="/tags/Hexo/">Hexo</a><small>3</small></li>
+    <li><a href="/tags/Hexo/">Hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/Python试错/">Python试错</a><small>1</small></li>
   
     <li><a href="/tags/TADM/">TADM</a><small>2</small></li>
+  
+    <li><a href="/tags/blog/">blog</a><small>1</small></li>
   
     <li><a href="/tags/图论/">图论</a><small>1</small></li>
   
@@ -963,6 +1106,8 @@
     <li><a href="/tags/搜索/">搜索</a><small>2</small></li>
   
     <li><a href="/tags/编程语言/">编程语言</a><small>1</small></li>
+  
+    <li><a href="/tags/翻译/">翻译</a><small>1</small></li>
   
     <li><a href="/tags/面试/">面试</a><small>2</small></li>
   
