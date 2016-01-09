@@ -4,19 +4,30 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Hexo 博客优化 | 随风</title>
+  <title>对自定义包的引用 | 随风</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用Firebug看了一下加载速度，OMG!">
+  <meta name="description" content="需求驱动学习。
+
+前言这篇文章是包和单元测试的姊妹篇，内容是如何在自己的工程中导入自定义包，而不出现导入错误。
+在文章：包和单元测试中，已经叙述了如何单元测试的导入问题，本质上讲，只要导入的模块在搜索路径中，python就可以发现该模块。也验证了python命令会将运行文件所在目录加到sys.path中，而python -m unittest命令，将运行命令所在目录加入到sys.path中。
+实验">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 博客优化">
-<meta property="og:url" content="http://shitaibin.github.io/2015/05/06/Optimize-of-hexo-blog/index.html">
+<meta property="og:title" content="对自定义包的引用">
+<meta property="og:url" content="http://shitaibin.github.io/2016/01/09/project-and-custom-package/index.html">
 <meta property="og:site_name" content="随风">
-<meta property="og:description" content="用Firebug看了一下加载速度，OMG!">
-<meta property="og:image" content="http://7xixtr.com1.z0.glb.clouddn.com/loading-speed.JPG">
-<meta property="og:updated_time" content="2015-12-22T08:54:30.325Z">
+<meta property="og:description" content="需求驱动学习。
+
+前言这篇文章是包和单元测试的姊妹篇，内容是如何在自己的工程中导入自定义包，而不出现导入错误。
+在文章：包和单元测试中，已经叙述了如何单元测试的导入问题，本质上讲，只要导入的模块在搜索路径中，python就可以发现该模块。也验证了python命令会将运行文件所在目录加到sys.path中，而python -m unittest命令，将运行命令所在目录加入到sys.path中。
+实验">
+<meta property="og:updated_time" content="2016-01-09T02:33:59.307Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo 博客优化">
-<meta name="twitter:description" content="用Firebug看了一下加载速度，OMG!">
+<meta name="twitter:title" content="对自定义包的引用">
+<meta name="twitter:description" content="需求驱动学习。
+
+前言这篇文章是包和单元测试的姊妹篇，内容是如何在自己的工程中导入自定义包，而不出现导入错误。
+在文章：包和单元测试中，已经叙述了如何单元测试的导入问题，本质上讲，只要导入的模块在搜索路径中，python就可以发现该模块。也验证了python命令会将运行文件所在目录加到sys.path中，而python -m unittest命令，将运行命令所在目录加入到sys.path中。
+实验">
   
     <link rel="alternative" href="/atom.xml" title="随风" type="application/atom+xml">
   
@@ -202,11 +213,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Optimize-of-hexo-blog" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-project-and-custom-package" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/05/06/Optimize-of-hexo-blog/" class="article-date">
-  	<time datetime="2015-05-06T14:30:03.000Z" itemprop="datePublished">2015-05-06</time>
+      <a href="/2016/01/09/project-and-custom-package/" class="article-date">
+  	<time datetime="2016-01-09T02:31:52.000Z" itemprop="datePublished">2016-01-09</time>
 </a>
     </div>
   
@@ -219,7 +230,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo 博客优化
+      对自定义包的引用
     </h1>
   
 
@@ -228,7 +239,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Package/">Package</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单元测试/">单元测试</a></li></ul>
 	</div>
 
         
@@ -239,10 +250,42 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>用Firebug看了一下加载速度，OMG!</p>
-<p><img src="http://7xixtr.com1.z0.glb.clouddn.com/loading-speed.JPG" alt="加载速度"></p>
-<a id="more"></a>
-<p>jquery.min.js</p>
+        <blockquote>
+<p>需求驱动学习。</p>
+</blockquote>
+<h1 id="前言">前言</h1><p>这篇文章是包和单元测试的姊妹篇，内容是如何在自己的工程中导入自定义包，而不出现导入错误。</p>
+<p>在文章：<a href="#">包和单元测试</a>中，已经叙述了如何单元测试的导入问题，本质上讲，只要导入的模块在搜索路径中，python就可以发现该模块。也验证了<code>python</code>命令会将运行文件所在目录加到<code>sys.path</code>中，而<code>python -m unittest</code>命令，将运行命令所在目录加入到<code>sys.path</code>中。</p>
+<h1 id="实验">实验</h1><p>为了写笔记，该系列实验仍然在Windows上进行，使用Python 2.7。</p>
+<h2 id="1-_同级目录引用自定义包">1. 同级目录引用自定义包</h2><h4 id="目录结构">目录结构</h4><p>如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_project&#10;&#9;./foo&#10;&#9;&#9;./__init__.py&#10;&#9;&#9;./bar.py&#10;&#9;./tests&#10;&#9;&#9;./__init__.py&#10;&#9;&#9;./test_foo.py&#10;&#9;&#9;./test_bar.py&#10;&#9;reference_foo_bar.py</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>my_project</code>是项目目录</li>
+<li><code>foo</code>是包目录</li>
+<li><code>tests</code>是对包的单元测试</li>
+<li><code>reference_foo_bar.py</code>是与包目录同级的工程文件，即同在<code>my_project</code>下。</li>
+</ul>
+<h4 id="各文件内容">各文件内容</h4><ul>
+<li><p>两个<code>__init__.py</code>文件、<code>test_foo.py</code>都为空</p>
+</li>
+<li><p><code>bar.py</code>内容：</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dumb_true</span><span class="params">()</span>:</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>test_bar.py</code>内容如下，但今天的实验中不会用到单元测试。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import unittest&#10;&#10;from foo import bar&#10;&#10;class TestBar(unittest.TestCase):&#10;    def test_bar_true(self):&#10;        self.assertTrue(bar.dumb_true())&#10;&#10;&#10;if __name__ == &#34;__main__&#34;:&#10;    unittest.main()</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>reference_foo_bar.py</code>内容如下：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> foo <span class="keyword">import</span> bar</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> bar.dumb_true():</span><br><span class="line">	<span class="keyword">print</span> <span class="string">"Hi, we can import foo and use it."</span></span><br><span class="line"><span class="keyword">else</span> :</span><br><span class="line">	<span class="keyword">print</span> <span class="string">"Hi, we also imported foo but something wrong."</span></span><br></pre></td></tr></table></figure>
+<h4 id="运行测试">运行测试</h4><p>测试命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd new_project&#10;python reference_foo_bar.py</span><br></pre></td></tr></table></figure>
+<p>测试结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi, we can import foo and use it.</span><br></pre></td></tr></table></figure>
+<p>太棒了，这是一个好的征兆，我们成功引用了模块<code>foo.bar</code>下的<code>dumb_true</code>函数，如果不明白原理，请看姊妹篇文章：<a href="">包和单元测试</a></p>
+<h2 id="2-_不同目录引用自定义包">2. 不同目录引用自定义包</h2><p>我们使用的标准库和第三方库，都是这种情况，因为这些包都不在我们工程的目录下。本质上讲，他们也都是自定义的，只不过在安装他们的时候，将他们所在的目录，放到了Python的搜索路径中，即<code>sys.path</code>。</p>
+<p>我们本实验中自定义的包，指我们自己写的工具包，</p>
 
       
     </div>
@@ -252,18 +295,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/11/30/How-to-Select-Programming-Language-md/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          如何选择编程语言
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/05/04/Ch5-Exercises-and-Solutions-of-TADM2E/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">算法设计手册第二版第五章课后习题解答</div>
+    <a href="/2016/01/08/package-unittest-import-error/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python自定义包下不同目录单元测试的导入错误</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -298,7 +332,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Optimize-of-hexo-blog" data-title="Hexo 博客优化" data-url="http://shitaibin.github.io/2015/05/06/Optimize-of-hexo-blog/"></div>
+	<div class="ds-thread" data-thread-key="project-and-custom-package" data-title="对自定义包的引用" data-url="http://shitaibin.github.io/2016/01/09/project-and-custom-package/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
