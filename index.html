@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Package/" style="font-size: 13.33px;">Package</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Python试错/" style="font-size: 10px;">Python试错</a> <a href="/tags/TADM/" style="font-size: 13.33px;">TADM</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/单元测试/" style="font-size: 16.67px;">单元测试</a> <a href="/tags/图论/" style="font-size: 10px;">图论</a> <a href="/tags/待办/" style="font-size: 10px;">待办</a> <a href="/tags/思考/" style="font-size: 16.67px;">思考</a> <a href="/tags/招聘/" style="font-size: 10px;">招聘</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/搜索/" style="font-size: 13.33px;">搜索</a> <a href="/tags/编程语言/" style="font-size: 10px;">编程语言</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/面试/" style="font-size: 13.33px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Package/" style="font-size: 13.33px;">Package</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Python试错/" style="font-size: 10px;">Python试错</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/TADM/" style="font-size: 13.33px;">TADM</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/单元测试/" style="font-size: 16.67px;">单元测试</a> <a href="/tags/图论/" style="font-size: 10px;">图论</a> <a href="/tags/待办/" style="font-size: 10px;">待办</a> <a href="/tags/思考/" style="font-size: 16.67px;">思考</a> <a href="/tags/招聘/" style="font-size: 10px;">招聘</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/搜索/" style="font-size: 13.33px;">搜索</a> <a href="/tags/编程语言/" style="font-size: 10px;">编程语言</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/面试/" style="font-size: 13.33px;">面试</a>
 					</div>
 				</section>
 				
@@ -201,6 +201,188 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-review-SQL" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/13/review-SQL/" class="article-date">
+  	<time datetime="2016-03-13T06:47:20.000Z" itemprop="datePublished">2016-03-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/13/review-SQL/">SQL回顾总结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="查询">查询</h1><h2 id="限制行号和偏倚量。">限制行号和偏倚量。</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">LIMIT</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">OFFSET</span> <span class="number">2</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">LIMIT</span> <span class="number">2</span>,<span class="number">3</span>;</span></span><br></pre></td></tr></table></figure>
+<h2 id="注释">注释</h2><p>1) 嵌入在行内<br>2) 整行都是注释<br>3) 块注释</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1) <span class="comment">--</span></span><br><span class="line">2) #</span><br><span class="line">3) <span class="comment">/*  */</span></span><br></pre></td></tr></table></figure>
+<h1 id="检索排序">检索排序</h1><blockquote>
+<p>关键字：ORDER BY，DESC。</p>
+</blockquote>
+<h2 id="ORDER_BY子句的位置（必须最后一句）">ORDER BY子句的位置（必须最后一句）</h2><p>  在指定一条ORDER BY子句时，应该保证它是SELECT语句中最后一条子句。如果它不是最后的子句，将会出现错误消息。</p>
+<h2 id="通过非选择列进行排序（排序的那列可以不显示）">通过非选择列进行排序（排序的那列可以不显示）</h2><p>  通常，ORDER BY子句中使用的列将是为显示而选择的列。但是，实际上并不一定要这样，用非检索的列排序数据是完全合法的。</p>
+<h2 id="多列排序">多列排序</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> prod_id, prod_price, prod_name</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> prod_price, prod_name;</span></span><br></pre></td></tr></table></figure>
+<p>效果</p>
+<p>为什么列顺序不是：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> prod_id, prod_name, prod_price</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> prod_price, prod_name;</span></span><br></pre></td></tr></table></figure>
+<p>效果</p>
+<p>因为<code>prod_name</code>放中间不好看。</p>
+<h2 id="按列位置排序">按列位置排序</h2><p><strong>禁止使用</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> prod_id, prod_price, prod_name</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="number">2</span>, <span class="number">3</span>;</span></span><br></pre></td></tr></table></figure>
+<p>虽然简写了列名字，但容易出错，并且相当不直观，隐藏了潜在BUG。在修改SQL的语句的更容易错误，可能依据的排序列根本不在查询中。</p>
+<h2 id="逆序">逆序</h2><p>在排序依据列的名字加DESC。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> prod_id, prod_price, prod_name</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> prod_price <span class="keyword">DESC</span>, prod_name <span class="keyword">DESC</span>;</span></span><br></pre></td></tr></table></figure>
+<p>效果：根据价格从高到低排序，同价，则根据名字，从后向前排序。</p>
+<h1 id="检索过滤">检索过滤</h1><blockquote>
+<p>关键词：WHERE。</p>
+</blockquote>
+<h2 id="操作符">操作符</h2><h2 id="范围检查">范围检查</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> prod_id, prod_price, prod_name</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> prod_price <span class="keyword">BETWEEN</span> <span class="number">8</span> <span class="keyword">AND</span> <span class="number">10</span>;</span></span><br></pre></td></tr></table></figure>
+<h2 id="空值检查">空值检查</h2><p>IS NULL。</p>
+<p><strong>这不同于值为0，或字符串为空。</strong></p>
+<p>查找没有邮箱的客户。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> cust_name</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">WHERE</span> cust_email <span class="keyword">IS</span> <span class="literal">NULL</span>;</span></span><br></pre></td></tr></table></figure>
+<p>找到有邮箱的用户。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> cust_name</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">WHERE</span> cust_email <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>;</span></span><br></pre></td></tr></table></figure>
+<h1 id="高级过滤">高级过滤</h1><blockquote>
+<p>关键词：NOT，IN，AND，OR。</p>
+</blockquote>
+<h2 id="AND,_OR">AND, OR</h2><p>WHERE子句可以包含任意数目的AND和OR操作符。允许两者结合以进行复杂、高级的过滤。SQL（像多数语言一样）<strong>在处理OR操作符前，优先处理AND操作符</strong>。当SQL看到上述WHERE子句时，它理解为：由供应商BRS01制造的价格为10美元以上的所有产品，以及由供应商DLL01制造的所有产品，而不管其价格如何。换句话说，由于AND在求值过程中优先级更高，操作符被错误地组合了。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> prod_name, prod_price</span><br><span class="line"><span class="keyword">FROM</span> Products</span><br><span class="line"><span class="keyword">WHERE</span> vend_id = <span class="string">'DLL01'</span> <span class="keyword">OR</span> vend_id = ‘BRS01’</span><br><span class="line"><span class="keyword">AND</span> prod_price &gt;= <span class="number">10</span></span></span><br></pre></td></tr></table></figure>
+<p>理想是这样子的：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> prod_name, prod_price</span><br><span class="line"><span class="keyword">FROM</span> Products</span><br><span class="line"><span class="keyword">WHERE</span> (vend_id = <span class="string">'DLL01'</span> <span class="keyword">OR</span> vend_id = ‘BRS01’)</span><br><span class="line"><span class="keyword">AND</span> prod_price &gt;= <span class="number">10</span>;</span></span><br></pre></td></tr></table></figure>
+<h2 id="IN">IN</h2><p>满足所在集合的记录。</p>
+<ol>
+<li><strong>完成的是OR的工作，IN是OR的简洁版本</strong>。</li>
+<li>在有很多合法选项时，IN操作符的语法<strong>更清楚，更直观</strong>。</li>
+<li>在与其他AND和OR操作符组合使用IN时，求值顺序更<strong>容易管理</strong>。</li>
+<li>IN操作符一般比一组OR操作符执行得<strong>更快</strong>。</li>
+<li>IN的最大优点是可以<strong>包含其他SELECT语句，能够更动态地建立WHERE子句</strong>。</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> vend_id, prod_id, prod_price, prod_name</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> vend_id</span><br><span class="line"><span class="keyword">IN</span> (<span class="string">'DLL01'</span>, <span class="string">'BRS01'</span>);</span></span><br></pre></td></tr></table></figure>
+<h2 id="NOT">NOT</h2><p>WHERE子句中的NOT操作符有且只有一个功能，那就是否定<strong>其后</strong>所跟的任何条件。<br>在更复杂的子句中，NOT是非常有用的。例如，在与IN操作符联合使用时，NOT可以非常简单地找出与条件列表不匹配的行。</p>
+<h1 id="通配符过滤">通配符过滤</h1><blockquote>
+<p>关键词：%，_。</p>
+</blockquote>
+<p>引用自《SQL必知必会》。</p>
+<h2 id="谓词：LIKE">谓词：<code>LIKE</code></h2><h2 id="%：任何字符出现任意次数">%：任何字符出现任意次数</h2><ol>
+<li>使用相当的灵活，可以把<code>%</code>放在字符串的任何一个位置，也可以使用多个<code>%</code>。</li>
+<li>不匹配<code>NULL</code>。</li>
+</ol>
+<p>搜索商品名称以Fish开头的商品。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> prod_id, prod_name </span><br><span class="line"><span class="keyword">FROM</span> Products </span><br><span class="line"><span class="keyword">WHERE</span> prod_name <span class="keyword">LIKE</span> <span class="string">'Fish%'</span>;</span></span><br></pre></td></tr></table></figure>
+<p>以bag结尾呢？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WHERE prod_name LIKE '%bag';</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">'F%y' ： 以F开头，以y结尾。</span><br><span class="line">'F%y%'：以F开头，中间有y。</span><br></pre></td></tr></table></figure>
+<p>实用案例：邮箱匹配</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> cust_name, cust_email</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">WHERE</span> cust_email <span class="keyword">LIKE</span> <span class="string">'%@fun4all.com'</span>;</span></span><br></pre></td></tr></table></figure>
+<h2 id="_：只匹配单个字符。">_：只匹配单个字符。</h2><ol>
+<li>有且仅有一个字符。</li>
+<li>可以是空格。</li>
+<li>可以连用。</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> prod_id, prod_name</span><br><span class="line"><span class="keyword">FROM</span> Products</span><br><span class="line"><span class="keyword">WHERE</span> prod_name <span class="keyword">LIKE</span> <span class="string">'__ inch teddy bear'</span>;</span></span><br></pre></td></tr></table></figure>
+<p><strong>MySQL的LIKE只支持<code>%</code>和<code>_</code>，其他匹配，可以使用谓词<code>REGEXP</code>。</strong></p>
+<h2 id="技巧">技巧</h2><ol>
+<li>不要过度使用通配符。如果其他操作符能达到相同的目的，应该使用其他操作符。</li>
+<li>在确实需要使用通配符时，也尽量不要把它们用在搜索模式的开始处。把通配符置于开始处，搜索起来是最慢的。</li>
+<li>仔细注意通配符的位置。如果放错地方，可能不会返回想要的数据。</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Anaconda-in-windows" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/14/Anaconda-in-windows/" class="article-date">
+  	<time datetime="2016-01-14T12:52:26.000Z" itemprop="datePublished">2016-01-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/14/Anaconda-in-windows/">Anaconda in windows</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-project-and-custom-package" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1236,132 +1418,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/12/01/Well-Prepared-For-Campus-Recruit/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-How-to-Select-Programming-Language-md" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/30/How-to-Select-Programming-Language-md/" class="article-date">
-  	<time datetime="2015-11-29T16:00:00.000Z" itemprop="datePublished">2015-11-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/30/How-to-Select-Programming-Language-md/">如何选择编程语言</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>随着认识的积累，对编程语言的看法也在改变。</p>
-</blockquote>
-<p>以下内容，纯吐槽。</p>
-<h1 id="C，C++，Java">C，C++，Java</h1><p>本科的时候只接触了C，C++，Java，那就先吐槽一下他们吧。</p>
-<p>期初很狭隘的认为学习一两个编程语言就足够了，这样就可以做许多东西了，学那么多编程语言有必要吗？</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程语言/">编程语言</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/30/How-to-Select-Programming-Language-md/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Optimize-of-hexo-blog" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/05/06/Optimize-of-hexo-blog/" class="article-date">
-  	<time datetime="2015-05-06T14:30:03.000Z" itemprop="datePublished">2015-05-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/06/Optimize-of-hexo-blog/">Hexo 博客优化</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>用Firebug看了一下加载速度，OMG!</p>
-<p><img src="http://7xixtr.com1.z0.glb.clouddn.com/loading-speed.JPG" alt="加载速度"></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/05/06/Optimize-of-hexo-blog/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
