@@ -37,7 +37,7 @@
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">James Shi</a></h1>
+		  <h1 class="header-author"><a href="/">随风</a></h1>
 		</hgroup>
 
 		
@@ -56,11 +56,6 @@
 							<div class="ribbon"></div>
 						</div>
 						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
 						
 						<div class="icon-wrap icon-me hide" data-idx="3">
 							<div class="user"></div>
@@ -75,8 +70,6 @@
 					<ul class="tips-inner">
 						<li>菜单</li>
 						<li>標籤</li>
-						
-						<li>友情链接</li>
 						
 						
 						<li>關於</li>
@@ -122,28 +115,10 @@
 				
 				
 				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
-			        
-			        </div>
-				</section>
-				
 
 				
 				
-				<section class="switch-part switch-part4">
+				<section class="switch-part switch-part3">
 				
 					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
 				</section>
@@ -158,7 +133,7 @@
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">James Shi</h1>
+  		<h1 class="header-author js-mobile-header hide">随风</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -168,7 +143,7 @@
 			
 			</div>
 			<hgroup>
-			  <h1 class="header-author">James Shi</h1>
+			  <h1 class="header-author">随风</h1>
 			</hgroup>
 			
 			<p class="header-subtitle">随风而起，随风而散</p>
@@ -237,10 +212,10 @@
 <h2 id="ORDER_BY子句的位置（必须最后一句）">ORDER BY子句的位置（必须最后一句）</h2><p>  在指定一条ORDER BY子句时，应该保证它是SELECT语句中最后一条子句。如果它不是最后的子句，将会出现错误消息。</p>
 <h2 id="通过非选择列进行排序（排序的那列可以不显示）">通过非选择列进行排序（排序的那列可以不显示）</h2><p>  通常，ORDER BY子句中使用的列将是为显示而选择的列。但是，实际上并不一定要这样，用非检索的列排序数据是完全合法的。</p>
 <h2 id="多列排序">多列排序</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> prod_id, prod_price, prod_name</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> prod_price, prod_name;</span></span><br></pre></td></tr></table></figure>
-<p>效果</p>
+<p>效果<br><img src="http://7xixtr.com1.z0.glb.clouddn.com/review-SQL-3-1.png" alt=""></p>
 <p>为什么列顺序不是：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> prod_id, prod_name, prod_price</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> prod_price, prod_name;</span></span><br></pre></td></tr></table></figure>
-<p>效果</p>
+<p>效果<br><img src="http://7xixtr.com1.z0.glb.clouddn.com/review-SQL-3-2.png" alt=""></p>
 <p>因为<code>prod_name</code>放中间不好看。</p>
 <h2 id="按列位置排序">按列位置排序</h2><p><strong>禁止使用</strong></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> prod_id, prod_price, prod_name</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="number">2</span>, <span class="number">3</span>;</span></span><br></pre></td></tr></table></figure>
@@ -251,7 +226,8 @@
 <h1 id="检索过滤">检索过滤</h1><blockquote>
 <p>关键词：WHERE。</p>
 </blockquote>
-<h2 id="操作符">操作符</h2><h2 id="范围检查">范围检查</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> prod_id, prod_price, prod_name</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> prod_price <span class="keyword">BETWEEN</span> <span class="number">8</span> <span class="keyword">AND</span> <span class="number">10</span>;</span></span><br></pre></td></tr></table></figure>
+<h2 id="操作符">操作符</h2><p><img src="http://7xixtr.com1.z0.glb.clouddn.com/review-SQL-operators.png" alt=""></p>
+<h2 id="范围检查">范围检查</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> prod_id, prod_price, prod_name</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> prod_price <span class="keyword">BETWEEN</span> <span class="number">8</span> <span class="keyword">AND</span> <span class="number">10</span>;</span></span><br></pre></td></tr></table></figure>
 <h2 id="空值检查">空值检查</h2><p>IS NULL。</p>
 <p><strong>这不同于值为0，或字符串为空。</strong></p>
 <p>查找没有邮箱的客户。</p>
@@ -279,6 +255,14 @@
 <p>关键词：%，_。</p>
 </blockquote>
 <p>引用自《SQL必知必会》。</p>
+<blockquote>
+<p>通配符（wildcard）<br>用来匹配值的一部分的特殊字符。</p>
+<p>搜索模式（search pattern）<br>由字面值、通配符或两者组合构成的搜索条件。</p>
+</blockquote>
+<p>通配符本身实际上是SQL的WHERE子句中有特殊含义的字符，SQL支持几种通配符。为在搜索子句中使用通配符，必须使用LIKE操作符。LIKE指示DBMS，后跟的搜索模式利用通配符匹配而不是简单的相等匹配进行比较。</p>
+<blockquote>
+<p>谓词（predicate）<br>操作符何时不是操作符？答案是，它作为谓词时。从技术上说，LIKE是谓词而不是操作符。虽然最终的结果是相同的，但应该对此术语有所了解，以免在SQL文献或手册中遇到此术语时不知所云。</p>
+</blockquote>
 <h2 id="谓词：LIKE">谓词：<code>LIKE</code></h2><h2 id="%：任何字符出现任意次数">%：任何字符出现任意次数</h2><ol>
 <li>使用相当的灵活，可以把<code>%</code>放在字符串的任何一个位置，也可以使用多个<code>%</code>。</li>
 <li>不匹配<code>NULL</code>。</li>
@@ -302,6 +286,46 @@
 <li>在确实需要使用通配符时，也尽量不要把它们用在搜索模式的开始处。把通配符置于开始处，搜索起来是最慢的。</li>
 <li>仔细注意通配符的位置。如果放错地方，可能不会返回想要的数据。</li>
 </ol>
+<h1 id="计算字段">计算字段</h1><blockquote>
+<p>字段（field）<br>基本上与列（column）的意思相同，经常互换使用，不过数据库列一般称为列，而术语字段通常与计算字段一起使用。</p>
+</blockquote>
+<h2 id="拼接">拼接</h2><p>MySQL需要使用拼接函数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">concat(): 参数为列名，和字符串</span><br><span class="line">concat_ws(): 第一个参数为连接符，剩余参数为列明，各列之间使用连接符连接</span><br></pre></td></tr></table></figure>
+<p>例1</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">concat</span>(vend_name, <span class="string">'('</span>, vend_country, <span class="string">')'</span>)</span><br><span class="line">	<span class="keyword">AS</span> vend_title</span><br><span class="line"><span class="keyword">FROM</span> vendors;</span></span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">'Bear Emporium(USA)'</span><br><span class="line">'Bears R Us(USA)'</span><br><span class="line">'Doll House Inc.(USA)'</span><br><span class="line">'Fun and Games(England)'</span><br><span class="line">'Furball Inc.(USA)'</span><br><span class="line">'Jouets et ours(France)'</span><br></pre></td></tr></table></figure>
+<p>例2</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">concat_ws</span>(<span class="string">'-'</span>, vend_name, vend_country)</span><br><span class="line"><span class="keyword">FROM</span> vendors;</span></span><br></pre></td></tr></table></figure>
+<p>效果</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">'Bear Emporium-USA'</span><br><span class="line">'Bears R Us-USA'</span><br><span class="line">'Doll House Inc.-USA'</span><br><span class="line">'Fun and Games-England'</span><br><span class="line">'Furball Inc.-USA'</span><br><span class="line">'Jouets et ours-France'</span><br></pre></td></tr></table></figure>
+<h2 id="别名/导出列">别名/导出列</h2><p>AS是SQL的一条最佳实践。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">concat_ws</span>(<span class="string">'-'</span>, vend_name, vend_country)</span><br><span class="line">	<span class="keyword">AS</span> vend_title</span><br><span class="line"><span class="keyword">FROM</span> vendors;</span></span><br></pre></td></tr></table></figure>
+<h2 id="算术计算">算术计算</h2><p>支持列或字段之间的四则运算。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> prod_id,</span><br><span class="line">	   quantity,</span><br><span class="line">       item_price,</span><br><span class="line">       quantity*item_price <span class="keyword">AS</span> expanded_price</span><br><span class="line"><span class="keyword">FROM</span> orderitems</span><br><span class="line"><span class="keyword">WHERE</span> order_num = <span class="number">20008</span>;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>SELECT语句校验<br>SELECT语句为测试、检验函数和计算提供了很好的方法。虽然SELECT通常用于从表中检索数据，但是省略了FROM子句后就是简单地访问和处理表达式，例如SELECT 3 * 2;将返回6，SELECT Trim(‘ abc ‘);将返回abc，SELECT Now();使用Now()函数返回当前日期和时间。现在你明白了，可以根据需要使用SELECT语句进行检验。</p>
+</blockquote>
+<h1 id="函数">函数</h1><blockquote>
+<p>不同的DBMS支持的函数不同。</p>
+</blockquote>
+<p>常用函数可以分为以下几类：</p>
+<ul>
+<li>数值函数</li>
+<li>文本函数</li>
+<li>日期时间函数</li>
+<li>DBMS系统函数</li>
+</ul>
+<p>常用函数参考：<a href="http://www.cnblogs.com/kissdodog/p/4168721.html" target="_blank" rel="external">时光机</a></p>
+<h2 id="文本函数">文本函数</h2><p>处理字符串的函数。</p>
+<p>例1：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> vend_name,</span><br><span class="line">  <span class="keyword">upper</span>(vend_name) <span class="keyword">AS</span> vend_name_upcase</span><br><span class="line"><span class="keyword">FROM</span> vendors</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> vend_name;</span></span><br></pre></td></tr></table></figure>
+<h2 id="日期时间函数">日期时间函数</h2><p>日期和时间采用相应的数据类型存储在表中，<strong>每种DBMS都有自己的特殊形式</strong>。日期和时间值以特殊的格式存储，以便能快速和有效地排序或过滤，并且节省物理存储空间。</p>
+<p>应用程序一般不使用日期和时间的存储格式，因此日期和时间函数总是用来读取、统计和处理这些值。由于这个原因，日期和时间函数在SQL中具有重要的作用。遗憾的是，它们很不一致，<strong>可移植性最差</strong>。</p>
+<p><strong>时间函数相当的丰富，包含了各种转换，日期加减，抽取。</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">curdate</span>();</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">curtime</span>();</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">now</span>();</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">month</span>(<span class="string">"2016-3-13 1:1:1"</span>);</span> <span class="comment">-- 获取输入date的月份</span></span><br></pre></td></tr></table></figure>
+<h2 id="数值处理">数值处理</h2><p><strong>在各大DBMS中，最统一、最一致的函数。</strong></p>
+<p>主要包括代数、三角、几何运算。</p>
 
       
     </div>
@@ -1446,7 +1470,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 James Shi
+    		&copy; 2016 随风
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
