@@ -6,42 +6,47 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>SQL回顾总结 | 随风</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本博文中的所有内容，可以在MySQL中运行。
+  <meta name="description" content="本博文中的所有内容，可以在MySQL 5.6.21中运行。
 
 MySQL 5.1在线参考手册：时光机
 查询限制行号和偏倚量。12345678SELECT *FROM productsLIMIT 3OFFSET 2;SELECT *FROM productsLIMIT 2,3;
 注释1) 嵌入在行内2) 整行都是注释3) 块注释
 1231) --2) #3) /*  */
 检索排序
-关键字：ORDER BY，DE">
+关键字：ORDE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL回顾总结">
 <meta property="og:url" content="http://shitaibin.github.io/2016/03/13/review-SQL/index.html">
 <meta property="og:site_name" content="随风">
-<meta property="og:description" content="本博文中的所有内容，可以在MySQL中运行。
+<meta property="og:description" content="本博文中的所有内容，可以在MySQL 5.6.21中运行。
 
 MySQL 5.1在线参考手册：时光机
 查询限制行号和偏倚量。12345678SELECT *FROM productsLIMIT 3OFFSET 2;SELECT *FROM productsLIMIT 2,3;
 注释1) 嵌入在行内2) 整行都是注释3) 块注释
 1231) --2) #3) /*  */
 检索排序
-关键字：ORDER BY，DE">
+关键字：ORDE">
 <meta property="og:image" content="http://7xixtr.com1.z0.glb.clouddn.com/review-SQL-3-1.png">
 <meta property="og:image" content="http://7xixtr.com1.z0.glb.clouddn.com/review-SQL-3-2.png">
 <meta property="og:image" content="http://7xixtr.com1.z0.glb.clouddn.com/review-SQL-operators.png">
 <meta property="og:image" content="http://7xixtr.com1.z0.glb.clouddn.com/9-1.png">
 <meta property="og:image" content="http://7xixtr.com1.z0.glb.clouddn.com/10-2.png">
-<meta property="og:updated_time" content="2016-03-16T06:21:11.986Z">
+<meta property="og:image" content="http://7xixtr.com1.z0.glb.clouddn.com/12-1.png">
+<meta property="og:image" content="http://7xixtr.com1.z0.glb.clouddn.com/12-2.png">
+<meta property="og:image" content="http://7xixtr.com1.z0.glb.clouddn.com/13-1.png">
+<meta property="og:image" content="http://7xixtr.com1.z0.glb.clouddn.com/13-2.png">
+<meta property="og:image" content="http://7xixtr.com1.z0.glb.clouddn.com/13-3.png">
+<meta property="og:updated_time" content="2016-03-17T06:00:31.651Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL回顾总结">
-<meta name="twitter:description" content="本博文中的所有内容，可以在MySQL中运行。
+<meta name="twitter:description" content="本博文中的所有内容，可以在MySQL 5.6.21中运行。
 
 MySQL 5.1在线参考手册：时光机
 查询限制行号和偏倚量。12345678SELECT *FROM productsLIMIT 3OFFSET 2;SELECT *FROM productsLIMIT 2,3;
 注释1) 嵌入在行内2) 整行都是注释3) 块注释
 1231) --2) #3) /*  */
 检索排序
-关键字：ORDER BY，DE">
+关键字：ORDE">
   
     <link rel="alternative" href="/atom.xml" title="随风" type="application/atom+xml">
   
@@ -228,7 +233,7 @@ MySQL 5.1在线参考手册：时光机
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>本博文中的所有内容，可以在MySQL中运行。</p>
+<p>本博文中的所有内容，可以在MySQL 5.6.21中运行。</p>
 </blockquote>
 <p>MySQL 5.1在线参考手册：<a href="http://doc.mysql.cn/mysql5/refman-5.1-zh.html-chapter/" target="_blank" rel="external">时光机</a></p>
 <h1 id="查询">查询</h1><h2 id="限制行号和偏倚量。">限制行号和偏倚量。</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">LIMIT</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">OFFSET</span> <span class="number">2</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">LIMIT</span> <span class="number">2</span>,<span class="number">3</span>;</span></span><br></pre></td></tr></table></figure>
@@ -412,7 +417,109 @@ MySQL 5.1在线参考手册：时光机
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 选择订购买商品数量大于3的订单，并且按商品数量和订单号排序。</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> order_num, <span class="keyword">COUNT</span>(*) <span class="keyword">as</span> items</span><br><span class="line"><span class="keyword">FROM</span> orderitems</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> order_num</span><br><span class="line"><span class="keyword">HAVING</span> items &gt;= <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> items, order_num;</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://7xixtr.com1.z0.glb.clouddn.com/10-2.png" alt=""></p>
-
+<h1 id="子查询">子查询</h1><blockquote>
+<p>MySQL从4.1版本才支持子查询。</p>
+</blockquote>
+<ul>
+<li>子查询总是从内向外处理。</li>
+<li>包含子查询的SELECT语句难以阅读和调试，它们在较为复杂时更是如此。如上所示，把子查询分解为多行并进行适当的缩进，能极大地简化子查询的使用。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查找购买了RGAN01的用户的信息。</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> cust_name, cust_contact</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">WHERE</span> cust_id <span class="keyword">IN</span> (<span class="keyword">SELECT</span> cust_id</span><br><span class="line"> <span class="keyword">FROM</span> Orders</span><br><span class="line"> <span class="keyword">WHERE</span> order_num <span class="keyword">IN</span> (<span class="keyword">SELECT</span> order_num</span><br><span class="line"> <span class="keyword">FROM</span> orderitems</span><br><span class="line"> <span class="keyword">WHERE</span> prod_id = <span class="string">'RGAN01'</span>));</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>警告：只能是单列<br>  作为子查询的SELECT语句只能查询单个列。企图检索多个列将返回错误。</li>
+<li>警告：子查询和性能<br>  这里给出的代码有效，并且获得了所需的结果。但是，使用子查询并不总是执行这类数据检索的最有效方法。更多的论述，请参阅第12课，其中将再次给出这个例子。</li>
+</ul>
+<h2 id="作为计算字段使用子查询">作为计算字段使用子查询</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> cust_name, </span><br><span class="line">       cust_state,</span><br><span class="line">       (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) </span><br><span class="line">        <span class="keyword">FROM</span> Orders </span><br><span class="line">        <span class="keyword">WHERE</span> Orders.cust_id = Customers.cust_id) <span class="keyword">AS</span> orders</span><br><span class="line"><span class="keyword">FROM</span> Customers </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> cust_name;</span></span><br></pre></td></tr></table></figure>
+<h1 id="联结表">联结表</h1><blockquote>
+<p>关键词：JOIN。</p>
+<p>联结： 如果数据存储在多个表中，怎样用一条SELECT语句就检索出数据呢？</p>
+</blockquote>
+<h2 id="联结">联结</h2><ul>
+<li>关系通过主键而建立。</li>
+<li>SQL语句中可以省略JOIN关键词。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> vend_name, prod_name, prod_price</span><br><span class="line"><span class="keyword">FROM</span> vendors, products</span><br><span class="line"><span class="keyword">WHERE</span> vendors.vend_id = products.vend_id;</span></span><br></pre></td></tr></table></figure>
+<p>等价于：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT vend_name, prod_name, prod_price&#10;FROM vendors JOIN products&#10;WHERE vendors.vend_id = products.vend_id;</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p><img src="http://7xixtr.com1.z0.glb.clouddn.com/12-1.png" alt=""></p>
+<ul>
+<li>如果没有WHERE，将会产生笛卡尔积效果：</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> vend_name, prod_name, prod_price</span><br><span class="line"><span class="keyword">FROM</span> vendors, products</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> vend_name, prod_name;</span></span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p><img src="http://7xixtr.com1.z0.glb.clouddn.com/12-2.png" alt=""></p>
+<p>所以我们需要WHERE进行过滤。</p>
+<h2 id="内连接">内连接</h2><p>目前使用的联结又称为等值联结，也被称为内联结，换另外一种方式：</p>
+<p>使用关键词<code>INNER JOIN</code>和<code>ON</code>，省略掉了<code>WHERE</code>效果相同。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> vend_name, prod_name, prod_price</span><br><span class="line"><span class="keyword">FROM</span> vendors <span class="keyword">INNER</span> <span class="keyword">JOIN</span> products</span><br><span class="line"><span class="keyword">ON</span> vendors.vend_id = products.vend_id</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> vend_name, prod_name;</span></span><br></pre></td></tr></table></figure>
+<h2 id="联结多个表">联结多个表</h2><p>SQL不限制一条SELECT语句中可以联结的表的数目，但联结越多，性能下降越大。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 20007这个订单下的所有商品，价格及数量，以及供货商。</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> prod_name, vend_name, prod_price, quantity</span><br><span class="line"><span class="keyword">FROM</span> vendors, products, orderitems</span><br><span class="line"><span class="keyword">WHERE</span> vendors.vend_id = products.vend_id</span><br><span class="line">  <span class="keyword">AND</span> orderitems.prod_id = products.prod_id</span><br><span class="line">  <span class="keyword">AND</span> orderitems.order_num = <span class="number">20007</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> vend_name, prod_name;</span></span><br></pre></td></tr></table></figure>
+<p>以简洁的JOIN完成上一节SELECT的子查询：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> cust_name, cust_contact</span><br><span class="line"><span class="keyword">FROM</span> customers, orders, orderitems</span><br><span class="line"><span class="keyword">WHERE</span> customers.cust_id = orders.cust_id;</span></span><br><span class="line">  AND orderitems.order_num = orders.order_num</span><br><span class="line">  AND orderitems.prod_id = 'RGAN01'</span><br></pre></td></tr></table></figure>
+<h1 id="高级联结">高级联结</h1><blockquote>
+<p>关键词：别名、外联结、聚集函数。</p>
+</blockquote>
+<h2 id="别名">别名</h2><ul>
+<li>缩短SQL语句；</li>
+<li>允许在一条SELECT语句中多次使用相同的表。</li>
+<li>与列别名不一样，表别名不返回到客户端。</li>
+<li>MySQL里面支持省略<code>AS</code>，就像Oracle的一样，Oracle是不支持使用<code>AS</code>。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> cust_name, cust_contact</span><br><span class="line"><span class="keyword">FROM</span> customers <span class="keyword">AS</span> <span class="keyword">C</span>, orders <span class="keyword">AS</span> O, orderitems <span class="keyword">AS</span> OI</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">C</span>.cust_id = O.cust_id</span><br><span class="line">  <span class="keyword">AND</span> O.order_num = OI.order_num</span><br><span class="line">  <span class="keyword">AND</span> OI.prod_id = <span class="string">'RGAN01'</span>;</span></span><br></pre></td></tr></table></figure>
+<p>WHERE语句中的条件顺序很重要，一般可以是这种思路：我查询的是customer信息，那么第一个条件先写和customer相关的，就会引出另外一张表，再写和这张表相关的，最后一个条件，必然为限定条件。</p>
+<h2 id="不同类型的联结">不同类型的联结</h2><p>四种其他联结：内连接（inner join）、自联结（self-join）、自然联结（natural join）和外联结（outer join）。</p>
+<h3 id="自联结">自联结</h3><p>条件与所查询的内容在同一个表。</p>
+<p>假如要给与Jim Jones同一公司的所有顾客发送一封信件。这个查询要求首先找出Jim Jones工作的公司，然后找出在该公司工作的顾客。</p>
+<p><img src="http://7xixtr.com1.z0.glb.clouddn.com/13-1.png" alt=""></p>
+<p>在这里好像cust_name是公司名，而cust_contact是联系人的名字，而Jim Jones则是其中的一个联系人。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> c1.cust_id, c1.cust_name, c1.cust_contact</span><br><span class="line"><span class="keyword">FROM</span> Customers <span class="keyword">AS</span> c1, Customers <span class="keyword">AS</span> c2</span><br><span class="line"><span class="keyword">WHERE</span> c1.cust_name = c2.cust_name</span><br><span class="line">  <span class="keyword">AND</span> c2.cust_contact = <span class="string">'Jim Jones'</span>;</span></span><br></pre></td></tr></table></figure>
+<h3 id="自然联结">自然联结</h3><p>自然联结排除多次出现，使每一列只返回一次。事实上，我们迄今为止建立的每个内联结都是自然联结，很可能永远都不会用到不是自然联结的内联结。</p>
+<h3 id="外联结">外联结</h3><p>不仅包含，有关联行的那些行，还包含没有关联行的那些行。</p>
+<ul>
+<li>LEFT：包含左边表的所有行。</li>
+<li>RIGHT：包含右边表的所有行。</li>
+<li>是需要调整FROM语句中的表的顺序，就可以互换LEFT和RIGHT。</li>
+<li>MySQL不支持<code>FULL OUTER JOIN</code>。</li>
+<li>条件只能使用<code>ON</code>过滤。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> customers.cust_id, orders.order_num</span><br><span class="line"><span class="keyword">FROM</span> orders <span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> customers</span><br><span class="line"><span class="keyword">ON</span> orders.cust_id = customers.cust_id;</span></span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p><img src="http://7xixtr.com1.z0.glb.clouddn.com/13-2.png" alt=""></p>
+<h2 id="聚集函数与联结">聚集函数与联结</h2><p>联结不过是把不同表中的数据合到一张“虚拟的表”，这张虚拟的表，就是由选择的列构成，我们可以在这些列上，使用聚合函数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查询有订单的每个用户的订单数量</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> customers.cust_id, </span><br><span class="line">	   <span class="keyword">COUNT</span>(orders.order_num) <span class="keyword">AS</span> num_ord</span><br><span class="line"><span class="keyword">FROM</span> customers, orders</span><br><span class="line"><span class="keyword">WHERE</span> customers.cust_id = orders.cust_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> customers.cust_id;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 简化上一个SQL查询</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> customers.cust_id <span class="keyword">AS</span> customer_id,</span><br><span class="line">	   <span class="keyword">COUNT</span>(orders.order_num) <span class="keyword">AS</span> order_count</span><br><span class="line"><span class="keyword">FROM</span> customers, orders</span><br><span class="line"><span class="keyword">WHERE</span> customers.cust_id = orders.cust_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> customer_id;</span></span><br></pre></td></tr></table></figure>
+<p>查询每个用户的订单数量，包含哪些没有订单的用户。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> customers.cust_id <span class="keyword">AS</span> customer_id,</span><br><span class="line">	   <span class="keyword">COUNT</span>(orders.order_num) <span class="keyword">AS</span> order_count</span><br><span class="line"><span class="keyword">FROM</span> customers <span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> orders</span><br><span class="line"><span class="keyword">ON</span> customers.cust_id = orders.cust_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> customer_id;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="http://7xixtr.com1.z0.glb.clouddn.com/13-3.png" alt=""></p>
+<h2 id="联结总结">联结总结</h2><ol>
+<li>注意所使用的联结类型。一般我们使用内联结，但使用外联结也有效。</li>
+<li>关于确切的联结语法，应该查看具体的文档，看相应的DBMS支持何种语法（大多数DBMS使用这两课中描述的某种语法）。</li>
+<li>保证使用正确的联结条件（不管采用哪种语法），否则会返回不正确的数据。</li>
+<li>应该总是提供联结条件，否则会得出笛卡儿积。</li>
+<li>在一个联结中可以包含多个表，甚至可以对每个联结采用不同的联结类型。虽然这样做是合法的，一般也很有用，但应该在一起测试它们前分别测试每个联结。这会使故障排除更为简单。</li>
+</ol>
+<h1 id="组合查询">组合查询</h1><blockquote>
+<p>关键词：UNION。</p>
+</blockquote>
+<p>执行多个查询（多条SELECT语句），并将结果作为一个查询结果集返回。这些组合查询通常称为并（union）或复合查询（compound query）。</p>
+<ul>
+<li>每个查询之间，使用一个<code>UNION</code>。</li>
+<li><code>UNION</code>会去掉各查询结果重复的项，仅保留一个。</li>
+<li><code>UNION ALL</code>可以保留重复的项。</li>
+</ul>
+<p>主要有两种情况需要使用组合查询：</p>
+<ol>
+<li>在一个查询中从不同的表返回结构数据；</li>
+<li>对一个表执行多个查询，按一个查询返回数据。</li>
+</ol>
+<h2 id="同WHERE转换">同WHERE转换</h2><p><strong>组合相同表</strong>的两个查询所完成的工作与具有多个WHERE子句条件的一个查询所完成的工作相同，使用<code>OR</code>组合过滤条件即可。换句话说，任何具有多个WHERE子句的SELECT语句都可以作为一个组合查询，在下面可以看到这一点。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 同一表中查询</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> cust_name, cust_contact, cust_email</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">WHERE</span> cust_state <span class="keyword">in</span> (<span class="string">'IL'</span>, <span class="string">'IN'</span>, <span class="string">'MI'</span>)</span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> cust_name, cust_contact, cust_email</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">WHERE</span> cust_name = <span class="string">'Fun4ALL'</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 替换为等价的WHERE过滤</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> cust_name, cust_contact, cust_email</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">WHERE</span> cust_state <span class="keyword">in</span> (<span class="string">'IL'</span>, <span class="string">'IN'</span>, <span class="string">'MI'</span>)</span><br><span class="line">   <span class="keyword">OR</span> cust_name = <span class="string">'Fun4ALL'</span>;</span></span><br></pre></td></tr></table></figure>
+<h2 id="排序">排序</h2><p>放在最后一行。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> cust_name, cust_contact, cust_email</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">WHERE</span> cust_state <span class="keyword">in</span> (<span class="string">'IL'</span>, <span class="string">'IN'</span>, <span class="string">'MI'</span>)</span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> cust_name, cust_contact, cust_email</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">WHERE</span> cust_name = <span class="string">'Fun4ALL'</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> cust_name, cust_contact;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>以上全是查询，下面的内容开启，修改数据库内容。</p>
+<h1 id="插入数据">插入数据</h1>
       
     </div>
     
