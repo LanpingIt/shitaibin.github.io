@@ -4,17 +4,28 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: Github | 随风</title>
+  <title>特征工程 | 随风</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="屌丝程序员的自留地#为搜索引擎留的">
-<meta property="og:type" content="website">
-<meta property="og:title" content="随风">
-<meta property="og:url" content="http://shitaibin.github.io/tags/Github/index.html">
+  <meta name="description" content="特征决定了机器学习的上限，而算法只不过是在逼近这个上限而已。
+
+足见特征的重要性，以房子举个栗子：特征是机器学习的地基，而算法是在地基上的房子，地基不稳，也不会得到健壮的房子。
+在机器学习和数据挖掘的书籍中都会提到特征工程，他们阐述了特征工程的类别，主要为特征提取和特征选择，并说明了他们的作用，但是好像也都没有详细的讲述如何做特征工程，所以此文，拟打算探索一下特征工程，后续在动手撸实验，求是一下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="特征工程">
+<meta property="og:url" content="http://shitaibin.github.io/2016/03/17/feature-engineering/index.html">
 <meta property="og:site_name" content="随风">
-<meta property="og:description" content="屌丝程序员的自留地#为搜索引擎留的">
+<meta property="og:description" content="特征决定了机器学习的上限，而算法只不过是在逼近这个上限而已。
+
+足见特征的重要性，以房子举个栗子：特征是机器学习的地基，而算法是在地基上的房子，地基不稳，也不会得到健壮的房子。
+在机器学习和数据挖掘的书籍中都会提到特征工程，他们阐述了特征工程的类别，主要为特征提取和特征选择，并说明了他们的作用，但是好像也都没有详细的讲述如何做特征工程，所以此文，拟打算探索一下特征工程，后续在动手撸实验，求是一下。">
+<meta property="og:image" content="http://www.processon.com/view/link/5577f378e4b0d6a77d9c400c">
+<meta property="og:updated_time" content="2016-03-17T01:01:31.047Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="随风">
-<meta name="twitter:description" content="屌丝程序员的自留地#为搜索引擎留的">
+<meta name="twitter:title" content="特征工程">
+<meta name="twitter:description" content="特征决定了机器学习的上限，而算法只不过是在逼近这个上限而已。
+
+足见特征的重要性，以房子举个栗子：特征是机器学习的地基，而算法是在地基上的房子，地基不稳，也不会得到健壮的房子。
+在机器学习和数据挖掘的书籍中都会提到特征工程，他们阐述了特征工程的类别，主要为特征提取和特征选择，并说明了他们的作用，但是好像也都没有详细的讲述如何做特征工程，所以此文，拟打算探索一下特征工程，后续在动手撸实验，求是一下。">
   
     <link rel="alternative" href="/atom.xml" title="随风" type="application/atom+xml">
   
@@ -163,53 +174,114 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-feature-engineering" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/27/things-about-github/" class="archive-article-date">
-  	<time datetime="2015-12-27T06:40:01.000Z" itemprop="datePublished">12月 27</time>
+    <div class="article-meta">
+      <a href="/2016/03/17/feature-engineering/" class="article-date">
+  	<time datetime="2016-03-17T00:49:06.000Z" itemprop="datePublished">2016-03-17</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/27/things-about-github/">Github二三事</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      特征工程
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据挖掘/">数据挖掘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/特征/">特征</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>特征决定了机器学习的上限，而算法只不过是在逼近这个上限而已。</p>
+</blockquote>
+<p>足见特征的重要性，以房子举个栗子：特征是机器学习的地基，而算法是在地基上的房子，地基不稳，也不会得到健壮的房子。</p>
+<p>在机器学习和数据挖掘的书籍中都会提到特征工程，他们阐述了特征工程的类别，主要为特征提取和特征选择，并说明了他们的作用，但是好像也都没有详细的讲述如何做特征工程，所以此文，拟打算探索一下特征工程，后续在动手撸实验，求是一下。</p>
+<p>这是一个特征工程的思维导图：<img src="http://www.processon.com/view/link/5577f378e4b0d6a77d9c400c" alt="时光机">。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/13/review-SQL/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SQL回顾总结</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="feature-engineering" data-title="特征工程" data-url="http://shitaibin.github.io/2016/03/17/feature-engineering/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -235,9 +307,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
