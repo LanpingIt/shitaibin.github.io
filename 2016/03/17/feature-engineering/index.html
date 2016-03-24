@@ -6,25 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>特征工程 | 随风</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="特征决定了机器学习的上限，而算法只不过是在逼近这个上限而已。
-
-足见特征的重要性，以房子举个栗子：特征是机器学习的地基，而算法是在地基上的房子，地基不稳，也不会得到健壮的房子。
-在机器学习和数据挖掘的书籍中都会提到特征工程，他们阐述了特征工程的类别，主要为特征提取和特征选择，并说明了他们的作用，但是好像也都没有详细的讲述如何做特征工程，其实原因也很简单，那些书籍重在讲述算法，所以他们尽量选择合适/">
+  <meta name="description" content="特征决定了机器学习的上限，而算法只不过是在逼近这个上限而已。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="特征工程">
 <meta property="og:url" content="http://shitaibin.github.io/2016/03/17/feature-engineering/index.html">
 <meta property="og:site_name" content="随风">
-<meta property="og:description" content="特征决定了机器学习的上限，而算法只不过是在逼近这个上限而已。
-
-足见特征的重要性，以房子举个栗子：特征是机器学习的地基，而算法是在地基上的房子，地基不稳，也不会得到健壮的房子。
-在机器学习和数据挖掘的书籍中都会提到特征工程，他们阐述了特征工程的类别，主要为特征提取和特征选择，并说明了他们的作用，但是好像也都没有详细的讲述如何做特征工程，其实原因也很简单，那些书籍重在讲述算法，所以他们尽量选择合适/">
-<meta property="og:updated_time" content="2016-03-18T04:55:56.301Z">
+<meta property="og:description" content="特征决定了机器学习的上限，而算法只不过是在逼近这个上限而已。">
+<meta property="og:updated_time" content="2016-03-24T02:24:04.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="特征工程">
-<meta name="twitter:description" content="特征决定了机器学习的上限，而算法只不过是在逼近这个上限而已。
-
-足见特征的重要性，以房子举个栗子：特征是机器学习的地基，而算法是在地基上的房子，地基不稳，也不会得到健壮的房子。
-在机器学习和数据挖掘的书籍中都会提到特征工程，他们阐述了特征工程的类别，主要为特征提取和特征选择，并说明了他们的作用，但是好像也都没有详细的讲述如何做特征工程，其实原因也很简单，那些书籍重在讲述算法，所以他们尽量选择合适/">
+<meta name="twitter:description" content="特征决定了机器学习的上限，而算法只不过是在逼近这个上限而已。">
   
     <link rel="alternative" href="/atom.xml" title="随风" type="application/atom+xml">
   
@@ -113,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Package/" style="font-size: 13.33px;">Package</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Python试错/" style="font-size: 10px;">Python试错</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/TADM/" style="font-size: 13.33px;">TADM</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/单元测试/" style="font-size: 16.67px;">单元测试</a> <a href="/tags/图论/" style="font-size: 10px;">图论</a> <a href="/tags/待办/" style="font-size: 10px;">待办</a> <a href="/tags/思考/" style="font-size: 16.67px;">思考</a> <a href="/tags/招聘/" style="font-size: 10px;">招聘</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/搜索/" style="font-size: 13.33px;">搜索</a> <a href="/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/特征/" style="font-size: 10px;">特征</a> <a href="/tags/编程语言/" style="font-size: 10px;">编程语言</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/面试/" style="font-size: 13.33px;">面试</a>
+						<a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Package/" style="font-size: 13.33px;">Package</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/TADM/" style="font-size: 13.33px;">TADM</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/单元测试/" style="font-size: 16.67px;">单元测试</a> <a href="/tags/图论/" style="font-size: 10px;">图论</a> <a href="/tags/待办/" style="font-size: 10px;">待办</a> <a href="/tags/思考/" style="font-size: 13.33px;">思考</a> <a href="/tags/招聘/" style="font-size: 10px;">招聘</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/搜索/" style="font-size: 13.33px;">搜索</a> <a href="/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/特征/" style="font-size: 10px;">特征</a> <a href="/tags/编程语言/" style="font-size: 10px;">编程语言</a> <a href="/tags/面试/" style="font-size: 13.33px;">面试</a>
 					</div>
 				</section>
 				
@@ -213,6 +204,7 @@
         <blockquote>
 <p>特征决定了机器学习的上限，而算法只不过是在逼近这个上限而已。</p>
 </blockquote>
+<a id="more"></a>
 <p>足见特征的重要性，以房子举个栗子：特征是机器学习的地基，而算法是在地基上的房子，地基不稳，也不会得到健壮的房子。</p>
 <p>在机器学习和数据挖掘的书籍中都会提到特征工程，他们阐述了特征工程的类别，主要为特征提取和特征选择，并说明了他们的作用，但是好像也都没有详细的讲述如何做特征工程，其实原因也很简单，那些书籍重在讲述算法，所以他们尽量选择合适/简单的数据和特征，以便能讲清楚算法原理，所以，当你按照书上的那些例子跑实验，自然也能得到理想的结果，潜移默化的让你认为算法比特征工程重要，因为，你从来没有做过特征工程。</p>
 <p>此文，拟打算探索一下特征工程，后续在动手撸实验，求是一下。</p>
