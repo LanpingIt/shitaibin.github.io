@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://shitaibin.github.io/2016/04/04/learn-dynamic-programming/index.html">
 <meta property="og:site_name" content="随风">
 <meta property="og:description" content="动态规划一直以来，算是一个弱点，前几腾讯的实习生笔试有道区间DP的题目，当时只能暴力的使用了递归，存在大量的重复计算，时间复杂度会达到O(N^2)。所以今日，查资料，从基础学习DP。">
-<meta property="og:updated_time" content="2016-04-05T14:27:01.919Z">
+<meta property="og:updated_time" content="2016-04-06T02:47:13.392Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动态规划">
 <meta name="twitter:description" content="动态规划一直以来，算是一个弱点，前几腾讯的实习生笔试有道区间DP的题目，当时只能暴力的使用了递归，存在大量的重复计算，时间复杂度会达到O(N^2)。所以今日，查资料，从基础学习DP。">
@@ -269,6 +269,9 @@
 <li>自变量再尝试：既然因变量还受W的限制，我们把容量也作为一个自变量，设置二元自变量，F（i，j）定义为：前i个元素，在容量限制为j的情况下，所能获得的最大价值。这时候对于i而言，有两种状态，一种是包含了i，一种是没有包含i，若包含了i，<code>F(i,j) = v(i) + F(i-1, j-w(i))</code>，如果没有包含i，则<code>F(i,j) = F(i-1, j)</code>。而F(i,j)是两者之中的最大值，这里面是有边界的，就是如何判断是否包含i，在表达式<code>F(i,j) = v(i) + F(i-1, j-w(i))</code>中，存在<code>j-w(i)</code>，这个就是边界，如果<code>j&gt;=w(i)</code>，那么可能包含i，反之，一定不包含。</li>
 <li>结果：F(n, W)。</li>
 </ul>
+<hr>
+<p>更新于：2016年4月6日</p>
+<p>一篇对易理解的DP文章：<a href="http://www.hawstein.com/posts/dp-novice-to-advanced.html" target="_blank" rel="external">从新手到专家</a></p>
 
       
     </div>
