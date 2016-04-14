@@ -26,7 +26,7 @@
 如何通过系统调用操纵堆
 什么是块、块的数据结构
 结构体的本质">
-<meta property="og:updated_time" content="2016-04-14T11:08:43.849Z">
+<meta property="og:updated_time" content="2016-04-14T13:47:32.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="malloc的故事">
 <meta name="twitter:description" content="读了张洋的《如何实现一个malloc》和Marwan Burlle的《A Malloc Turorial》，张洋的博文是对Marwan Burlle的理解、翻译和补充，缺失了一些细节。但读了张洋的文章后，再读《A Malloc Turorial》会快很多。
@@ -239,6 +239,7 @@
 <li>何时把块“还给系统”</li>
 <li>realloc的原理，及优化</li>
 </ol>
+<a id="more"></a>
 <h3 id="没讲什么">没讲什么</h3><ol>
 <li>如果free时，不还块会怎样。</li>
 <li>BLOCK_SIZE大小是如何确定的。</li>
@@ -286,18 +287,10 @@
 <h3 id="free如何确定是已经分配过的指针">free如何确定是已经分配过的指针</h3><p>块头（meta区）设置一个magic ptr，指向data，根据用户传入的指针p，得到block的指针，如果block-&gt;ptr刚好等于p，那么是我们曾经分配的，否则不是。</p>
 <p>BLOCK_SIZE应当改为32。</p>
 <h3 id="free碎片如何处理？">free碎片如何处理？</h3><p>改成双向链表，如果相邻的空间为free，那么合并（fusion）。如果不是双链表，我们只能向后合并，造成仍然有大量碎片。</p>
-<h3 id="代码汇总">代码汇总</h3><script src="https://gist.github.com/Shitaibin/8f8d80c45c9c4d23e4a2f264c49349a4.js"></script>
-
-
-
-
-
-
-
-
-
-
-
+<h3 id="代码汇总">代码汇总</h3><!--
+<script src="https://gist.github.com/Shitaibin/8f8d80c45c9c4d23e4a2f264c49349a4.js"></script>
+-->
+<p><a href="https://gist.github.com/Shitaibin/8f8d80c45c9c4d23e4a2f264c49349a4" target="_blank" rel="external">Gist</a></p>
 <h1 id="参考资料">参考资料</h1><ol>
 <li>原始资料：<a href="http://www.inf.udec.cl/~leo/Malloc_tutorial.pdf" target="_blank" rel="external">A Malloc Tutorial</a></li>
 <li>张洋博文，如何实现一个malloc：<br><a href="http://blog.codinglabs.org/articles/a-malloc-tutorial.html" target="_blank" rel="external">http://blog.codinglabs.org/articles/a-malloc-tutorial.html</a></li>
@@ -310,9 +303,8 @@
 <ol>
 <li>扩展阅读：<ul>
 <li>Linux 内存管理：内存映射，主要讲mmap： <a href="http://blog.jobbole.com/91891/" target="_blank" rel="external">http://blog.jobbole.com/91891/</a></li>
-<li>内存分配隐藏成本：<a href="http://blog.jobbole.com/82698/" target="_blank" rel="external">http://blog.jobbole.com/82698/</a></li>
-<li>什么是堆和栈：<a href="http://blog.jobbole.com/75321/" target="_blank" rel="external">http://blog.jobbole.com/75321/</a></li>
-<li>Linux内存点滴，泛化，好：<a href="http://blog.jobbole.com/45733/" target="_blank" rel="external">http://blog.jobbole.com/45733/</a></li>
+<li>什么是堆和栈（翻译自SO）：<a href="http://blog.jobbole.com/75321/" target="_blank" rel="external">http://blog.jobbole.com/75321/</a></li>
+<li>Linux内存点滴，用户进程内存空间。结合将了malloc和操作系统层面的内存管理，但文中也是有错误的，比如L4，L5（访问free的指针）执行，free后，那段空间可能并没有还给OS，因此页表中还存在映射，不会出现段错误，但如果还给了OS，页表中映射被取消，再去访问，才出现错误。：<a href="http://blog.jobbole.com/45733/" target="_blank" rel="external">http://blog.jobbole.com/45733/</a></li>
 <li>那些数据结构与算法在Linux内核中的使用：<a href="http://blog.jobbole.com/52669/" target="_blank" rel="external">http://blog.jobbole.com/52669/</a></li>
 </ul>
 </li>

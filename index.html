@@ -208,85 +208,6 @@
 <li>何时把块“还给系统”</li>
 <li>realloc的原理，及优化</li>
 </ol>
-<h3 id="没讲什么">没讲什么</h3><ol>
-<li>如果free时，不还块会怎样。</li>
-<li>BLOCK_SIZE大小是如何确定的。</li>
-<li>何时，如何分配大块的内存，mmap。</li>
-<li>realloc分配超大时，就要与mmap交互。</li>
-<li>如何对自己编写的内存管理测试。</li>
-</ol>
-<h1 id="张洋的博文">张洋的博文</h1><p>与《A Malloc Turorial》重复的项不再列出。</p>
-<h3 id="讲了什么-1">讲了什么</h3><ol>
-<li>虚地址与物理地址、缺页处理</li>
-<li>进程的内存布局</li>
-<li>堆内存的生长方向</li>
-</ol>
-<h3 id="没讲什么-1">没讲什么</h3><ol>
-<li>free中删除最后一个节点</li>
-</ol>
-<h1 id="我的理解和补充">我的理解和补充</h1><p>针对《A Malloc Turorial》和张洋的《如何实现一个malloc》做一些解释和补充：</p>
-<ol>
-<li>malloc的返回值类型是void*代表了，返回的是一个指针，但不确定是什么类型，所以使用前要强制转换。</li>
-<li><code>man malloc</code>指出：<ol>
-<li>malloc申请的大小大于MMAP_THRESHOLD(128KB)时，内存的分配会自动使用`mmap。</li>
-<li>glibc为了支持多线程应用，使用了互斥信号量，来避免内存管理冲突。</li>
-<li>glibc为了提高多线程应用的性能，使用了<a href="https://en.wikipedia.org/w/index.php?title=Arena_allocation&amp;redirect=no" target="_blank" rel="external">Arena allocation</a>.</li>
-<li>如果malloc，calloc，realloc失败，应当设置<code>errno</code>为<code>ENOMEM</code>，否则和errno相关的某个库程序会挂掉。</li>
-<li>malloc，calloc，realloc崩溃，多半是由heap冲突引起的，比如溢出了分配的chunk(块)，或同一个指针释放两次。</li>
-</ol>
-</li>
-<li><a href="https://msdn.microsoft.com/en-us/library/ms810603.aspx" target="_blank" rel="external">MSDN</a>指出：在Windows中，一个进程可以有多个heap，最初的那个被称为默认堆。</li>
-</ol>
-<h3 id="block是什么？">block是什么？</h3><p><em>在glibc中被称为chunk，其中的实现与这里的不太一样，嗯……相似不大。关于chunk更详细的解释就在源码里<a href="http://repo.or.cz/w/glibc.git/blob/HEAD:/malloc/malloc.c" target="_blank" rel="external">时光机</a>。</em></p>
-<p>为了管理堆内存，我们把内存分成很多大块，这些大块大小不一定相等。一个大块分成两部分，一个是块头（block），一个是块尾（data）。块尾就是我们要分配给用户用的空间，即malloc返回的空间。块头存放的是描述信息（meta data），描述的是块尾的信息，比如，它的大小，状态（可用性、读写性），开始位置，为了管理所有的块，让块都连起来，所以还需要链表的指针（如果使用链表管理的话），为了让块头满足内存对齐，我们还需要一些填充位。</p>
-<p>块中有个字段叫data，它记录了块尾的起始位置，但实际上它不能占用块头的大小，听起来是不是矛盾，理解了结构体的内存布局，和指针的访问方式，这个问题就迎刃而解了。既然它不属于块头，那为什么把它定义到结构体里呢？</p>
-<ol>
-<li>为了方便访问块尾。如果没有data字段，每次访问一个块的块尾大致需要这样：<code>b + BLOCK_SIZE</code>，其中b为块头的指针，每次都这样去访问块尾，不是很闹心吗？！（<em>glic用宏实现</em>）</li>
-<li>为了方便移动指针和计算指针间的距离。内存是按字节分配地址的，而char类型刚好占一个字节，所以把data声明为char，所以在上面做运算可以得到正确的内存地址。b是<code>s_block</code>类型的，那么<code>b + BLOCK_SIZE</code>也是<code>s_block</code>类型的，每次还需要强制转化为<code>char*</code>才能移动指针或计算，不是很折腾吗！？</li>
-</ol>
-<p><em>但这也带来了一个问题：不能使用sizeof获取BLOCK_SIZE。</em></p>
-<p>sizeof返回的实际占用的内存大小，因此在计算过程中，会执行内存对齐的计算。而在block的定义中，包含了字段data，内存对齐后，会多出一些。所以，需要手动设置BLOCK_SIZE。</p>
-<p>至于什么时候建造一个块，不同的管理方案，自然不同。在这里，当前的块不足以满足要求时，就从未用的堆内存中，建造一个块。</p>
-<p>另外，你如何实现sizeof呢？<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> sizeof(obj) ((char*)(&amp;obj + <span class="number">1</span>) - (char*)(&amp;obj))</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="为什么BLOCK_SIZE_是_24？">为什么BLOCK_SIZE 是 24？</h3><p>注意BLOCK_SIZE块头的大小，前面提到，data其实不属于block，而又为了能够让block的指针访问它，所以把他加到了block里的定义。block占用的内存空间是size，next，free，padding占用的内存空间，size_t占用8B，指针占用8B，int占用4B，共24B，所以BLOCK_SIZE 是 24。</p>
-<h3 id="为什么需要padding？不浪费内存吗？">为什么需要padding？不浪费内存吗？</h3><p>关键还在内存对齐。块头和块尾都需要各自对齐，因此，block的data字段应该在一个对齐单元的开始位置，而不应当处于block所占用的内存区，所以如果block的成员不能刚好对齐，那么需要设置填充位，而padding就是这个填充位。</p>
-<p>如果因为不使用padding而造成block和data区有重叠，就更不能愉快的使用内存了。 CPU读内存时一次读对齐的8个字节，data的开始位置，在中间，还怎么愉快的读？一次能读出来的数据，现在要分两次，CPU的时间，远比内存的时间金贵，所以，以空间换时间，这不是浪费。</p>
-<h3 id="为什么分裂的最低阀值是BLOCK_SIZE+8?">为什么分裂的最低阀值是BLOCK_SIZE+8?</h3><p>需要BLOCK_SIZE的必要block，剩下的为data区，data区又要字节对齐，在以8字节对齐的机器上，所以剩余的空间至少是BLOCK__SIZE+8。</p>
-<h3 id="free如何确定是已经分配过的指针">free如何确定是已经分配过的指针</h3><p>块头（meta区）设置一个magic ptr，指向data，根据用户传入的指针p，得到block的指针，如果block-&gt;ptr刚好等于p，那么是我们曾经分配的，否则不是。</p>
-<p>BLOCK_SIZE应当改为32。</p>
-<h3 id="free碎片如何处理？">free碎片如何处理？</h3><p>改成双向链表，如果相邻的空间为free，那么合并（fusion）。如果不是双链表，我们只能向后合并，造成仍然有大量碎片。</p>
-<h3 id="代码汇总">代码汇总</h3><script src="https://gist.github.com/Shitaibin/8f8d80c45c9c4d23e4a2f264c49349a4.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-<h1 id="参考资料">参考资料</h1><ol>
-<li>原始资料：<a href="http://www.inf.udec.cl/~leo/Malloc_tutorial.pdf" target="_blank" rel="external">A Malloc Tutorial</a></li>
-<li>张洋博文，如何实现一个malloc：<br><a href="http://blog.codinglabs.org/articles/a-malloc-tutorial.html" target="_blank" rel="external">http://blog.codinglabs.org/articles/a-malloc-tutorial.html</a></li>
-<li>没有A Malloc Tutorial简洁，也是简单示例：《C标准库》</li>
-<li>glic malloc源码，就算读注释，也会豁然开朗：<br>[1]. <a href="http://repo.or.cz/w/glibc.git/blob/HEAD:/malloc/malloc.h" target="_blank" rel="external">http://repo.or.cz/w/glibc.git/blob/HEAD:/malloc/malloc.h</a><br>[2]. <a href="http://repo.or.cz/w/glibc.git/blob/HEAD:/malloc/malloc.c" target="_blank" rel="external">http://repo.or.cz/w/glibc.git/blob/HEAD:/malloc/malloc.c</a></li>
-<li>malloc和free仍然存在较多问题的，所以另许多程序员头疼，《C语言接口与实现》讲述了如何进一步封装。PS，高级部分使用了arena。</li>
-<li>Windows堆内存管理：<a href="https://msdn.microsoft.com/en-us/library/ms810603.aspx" target="_blank" rel="external">https://msdn.microsoft.com/en-us/library/ms810603.aspx</a></li>
-</ol>
-<p>未看</p>
-<ol>
-<li>扩展阅读：<ul>
-<li>Linux 内存管理：内存映射，主要讲mmap： <a href="http://blog.jobbole.com/91891/" target="_blank" rel="external">http://blog.jobbole.com/91891/</a></li>
-<li>内存分配隐藏成本：<a href="http://blog.jobbole.com/82698/" target="_blank" rel="external">http://blog.jobbole.com/82698/</a></li>
-<li>什么是堆和栈：<a href="http://blog.jobbole.com/75321/" target="_blank" rel="external">http://blog.jobbole.com/75321/</a></li>
-<li>Linux内存点滴，泛化，好：<a href="http://blog.jobbole.com/45733/" target="_blank" rel="external">http://blog.jobbole.com/45733/</a></li>
-<li>那些数据结构与算法在Linux内核中的使用：<a href="http://blog.jobbole.com/52669/" target="_blank" rel="external">http://blog.jobbole.com/52669/</a></li>
-</ul>
-</li>
-</ol>
-
       
     </div>
     
@@ -299,6 +220,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/14/a-malloc-tutorial/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
