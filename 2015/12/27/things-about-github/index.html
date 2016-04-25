@@ -23,7 +23,7 @@
 原因：本地Git配置的邮箱与Github上面配置的邮箱不一致，具体原因是大小写导致的，本地中有大写字母，而Github上面全为小写。
 无法commit或add已经modified的文件(夹)明明显示修改了，但就是提交不上去，原因是那个目录是子模块，有自己的git信息。">
 <meta property="og:image" content="http://7xixtr.com1.z0.glb.clouddn.com/github-unkonw-commit.png">
-<meta property="og:updated_time" content="2016-03-24T05:17:06.573Z">
+<meta property="og:updated_time" content="2016-04-25T14:23:48.689Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github二三事">
 <meta name="twitter:description" content="总会有些疑问，也总有原因，也必然有解决方案。
@@ -225,6 +225,10 @@
 <p>原因：本地Git配置的邮箱与Github上面配置的邮箱不一致，具体原因是大小写导致的，本地中有大写字母，而Github上面全为小写。</p>
 <h2 id="无法commit或add已经modified的文件(夹)">无法commit或add已经modified的文件(夹)</h2><p>明明显示修改了，但就是提交不上去，原因是那个目录是子模块，有自己的git信息。</p>
 <p>参考资料：<a href="http://stackoverflow.com/questions/5186371/problem-with-modified-files-showing-up-in-git-but-not-updating" target="_blank" rel="external">时光机1号</a>，<a href="http://stackoverflow.com/questions/7726131/git-add-a-is-not-adding-all-modified-files-in-directories" target="_blank" rel="external">时光机2号</a>。</p>
+<h2 id="http代理带来的问题">http代理带来的问题</h2><p>在push操作的时候出现了这个问题：<figure class="highlight"><figcaption><span>RPC failed; result=56, HTTP code = 0```。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;```shell&#10;git push ...&#10;error: RPC failed; result=56, HTTP code = 200&#10;fatal: The remote end hung up unexpectedly&#10;fatal: The remote end hung up unexpectedly&#10;Everything up-to-date</span><br></pre></td></tr></table></figure></p>
+<p>原因：git设置的http的缓冲区太小了。</p>
+<p>调大即可解决：<code>git config http.postBuffer 524288000</code>。</p>
+<p><a href="https://flyingtomoon.com/2013/10/02/using-bitbucket-as-assignment-submission-system-for-the-courses/" target="_blank" rel="external">参考资料</a></p>
 
       
     </div>
