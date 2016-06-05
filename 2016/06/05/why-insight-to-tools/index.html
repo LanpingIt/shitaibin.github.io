@@ -4,18 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>特征工程 | 随风</title>
+  <title>为什么要深入理解库/包/框架等工具 | 随风</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="特征决定了机器学习的上限，而算法只不过是在逼近这个上限而已。">
+  <meta name="description" content="以前太简单，太SB。认为学会使用一个工具就好了，干嘛非得了解这个工具是怎么构建的，理解他的原理呢？
+有段时间我想通了，但没有记录下来。许多事情运作的原理是相似的，举个车的例子吧。
+汽车是一个工具，你努力学会了开车，你开车上路的时候，兴奋的不得了，开车上路了，感觉还不错，你飚到了200码，简直爽翻了。有一天，你的车子在路上抛锚了，但是你不了解汽车是怎么运作的，你也不会修车呀，只能打个电话联系修车厂，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="特征工程">
-<meta property="og:url" content="http://shitaibin.github.io/2016/03/17/feature-engineering/index.html">
+<meta property="og:title" content="为什么要深入理解库/包/框架等工具">
+<meta property="og:url" content="http://shitaibin.github.io/2016/06/05/why-insight-to-tools/index.html">
 <meta property="og:site_name" content="随风">
-<meta property="og:description" content="特征决定了机器学习的上限，而算法只不过是在逼近这个上限而已。">
-<meta property="og:updated_time" content="2016-03-24T04:51:38.335Z">
+<meta property="og:description" content="以前太简单，太SB。认为学会使用一个工具就好了，干嘛非得了解这个工具是怎么构建的，理解他的原理呢？
+有段时间我想通了，但没有记录下来。许多事情运作的原理是相似的，举个车的例子吧。
+汽车是一个工具，你努力学会了开车，你开车上路的时候，兴奋的不得了，开车上路了，感觉还不错，你飚到了200码，简直爽翻了。有一天，你的车子在路上抛锚了，但是你不了解汽车是怎么运作的，你也不会修车呀，只能打个电话联系修车厂，">
+<meta property="og:updated_time" content="2016-06-05T12:15:17.269Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="特征工程">
-<meta name="twitter:description" content="特征决定了机器学习的上限，而算法只不过是在逼近这个上限而已。">
+<meta name="twitter:title" content="为什么要深入理解库/包/框架等工具">
+<meta name="twitter:description" content="以前太简单，太SB。认为学会使用一个工具就好了，干嘛非得了解这个工具是怎么构建的，理解他的原理呢？
+有段时间我想通了，但没有记录下来。许多事情运作的原理是相似的，举个车的例子吧。
+汽车是一个工具，你努力学会了开车，你开车上路的时候，兴奋的不得了，开车上路了，感觉还不错，你飚到了200码，简直爽翻了。有一天，你的车子在路上抛锚了，但是你不了解汽车是怎么运作的，你也不会修车呀，只能打个电话联系修车厂，">
   
     <link rel="alternative" href="/atom.xml" title="随风" type="application/atom+xml">
   
@@ -164,11 +170,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-feature-engineering" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-why-insight-to-tools" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/17/feature-engineering/" class="article-date">
-  	<time datetime="2016-03-17T00:49:06.000Z" itemprop="datePublished">2016-03-17</time>
+      <a href="/2016/06/05/why-insight-to-tools/" class="article-date">
+  	<time datetime="2016-06-05T09:33:44.000Z" itemprop="datePublished">2016-06-05</time>
 </a>
     </div>
   
@@ -181,7 +187,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      特征工程
+      为什么要深入理解库/包/框架等工具
     </h1>
   
 
@@ -190,7 +196,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据挖掘/">数据挖掘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/特征/">特征</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
 	</div>
 
         
@@ -201,21 +207,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>特征决定了机器学习的上限，而算法只不过是在逼近这个上限而已。</p>
-</blockquote>
-<a id="more"></a>
-<p>足见特征的重要性，以房子举个栗子：特征是机器学习的地基，而算法是在地基上的房子，地基不稳，也不会得到健壮的房子。</p>
-<p>在机器学习和数据挖掘的书籍中都会提到特征工程，他们阐述了特征工程的类别，主要为特征提取和特征选择，并说明了他们的作用，但是好像也都没有详细的讲述如何做特征工程，其实原因也很简单，那些书籍重在讲述算法，所以他们尽量选择合适/简单的数据和特征，以便能讲清楚算法原理，所以，当你按照书上的那些例子跑实验，自然也能得到理想的结果，潜移默化的让你认为算法比特征工程重要，因为，你从来没有做过特征工程。</p>
-<p>此文，拟打算探索一下特征工程，后续在动手撸实验，求是一下。</p>
-<p>这是一个特征工程的思维导图：<a href="http://www.processon.com/view/link/5577f378e4b0d6a77d9c400c" target="_blank" rel="external">时光机</a>。</p>
-<p>机器学习被成为你一门艺术，一门黑艺术。</p>
-<p>实践出真知。</p>
-<h1 id="参考资料">参考资料</h1><ul>
-<li>博客-极力推荐-许多文章都参考了这篇文章-另外可以关注该博主的邮件列表：<a href="http://machinelearningmastery.com/discover-feature-engineering-how-to-engineer-features-and-how-to-get-good-at-it/" target="_blank" rel="external">http://machinelearningmastery.com/discover-feature-engineering-how-to-engineer-features-and-how-to-get-good-at-it/</a></li>
-<li>知乎-特征工程：<a href="https://www.zhihu.com/question/29316149" target="_blank" rel="external">https://www.zhihu.com/question/29316149</a></li>
-<li>知乎-特征选择：<a href="https://www.zhihu.com/question/28641663/answer/41653367" target="_blank" rel="external">https://www.zhihu.com/question/28641663/answer/41653367</a></li>
-</ul>
+        <p>以前太简单，太SB。认为学会使用一个工具就好了，干嘛非得了解这个工具是怎么构建的，理解他的原理呢？</p>
+<p>有段时间我想通了，但没有记录下来。许多事情运作的原理是相似的，举个车的例子吧。</p>
+<p>汽车是一个工具，你努力学会了开车，你开车上路的时候，兴奋的不得了，开车上路了，感觉还不错，你飚到了200码，简直爽翻了。有一天，你的车子在路上抛锚了，但是你不了解汽车是怎么运作的，你也不会修车呀，只能打个电话联系修车厂，把你的车子运回去。但是，这个修车厂的效率太低了，修的很慢，你还想到，万一你在沙漠里面开车子，找不到修车厂怎么办？所以，你学了汽车的一些原理，了解了构造，跟着学修车，有一天你出师了，汽车常见的问题，你基本可以解决了。这下把你乐坏了，开车去旅行，出了山海关，东北溜一圈，一路上各种小问题你都解决了。但你还是发现了很多问题，比如车子在雪地上跑的不行，上坡时也比较吃力。你觉得你必须学习改造这个车子了，在不同的环境下，让他发挥最好的性能。掌握了改造技术，进入内蒙古改造车子，让它在草原上飞起，到沙漠地带，你又改造车子，沙漠驰骋。这一路上，你看了许多美景，也学会了，开车、修车、改造车。</p>
+<p>以上故事，纯属瞎BB，如有雷同，纯属巧合。</p>
+<p>对我们使用的库、包、框架而言，他们也是工具，编程语言也是工具，服务器、PC、手机等等，都是工具。</p>
+<p>有些东西你需要掌握使用它的常用功能。但有些，需要你去改造它，让它适应不同的场景需求。所以我觉得，对于一门工具，应当有以下几个境界：</p>
+<ol>
+<li>掌握常用功能。</li>
+<li>见识一些奇淫巧计。</li>
+<li>掌握工具架构（骨骼）。</li>
+<li>洞察工具血肉。</li>
+<li>根据场景需求定制工具。</li>
+</ol>
 
       
     </div>
@@ -225,18 +229,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/24/Ch6-Exercises-and-Solutions-of-TADM2E/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/13/review-SQL/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SQL回顾总结</div>
+    <a href="/2016/05/17/design-fork-with-COW-in-JOS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JOS中具有写时拷贝的fork设计</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -271,7 +266,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="feature-engineering" data-title="特征工程" data-url="http://shitaibin.github.io/2016/03/17/feature-engineering/"></div>
+	<div class="ds-thread" data-thread-key="why-insight-to-tools" data-title="为什么要深入理解库/包/框架等工具" data-url="http://shitaibin.github.io/2016/06/05/why-insight-to-tools/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
